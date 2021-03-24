@@ -243,6 +243,7 @@ function App() {
 // import React from "react";
 // import Element from "./Element.js";
 // import BootstrapElement from "./BootstrapElement.js";
+// import StatefulComponent from "./StatefulComponent.js";
 
 // class App extends React.Component {
 //   render() {
@@ -264,6 +265,7 @@ function App() {
 //         </header>
 //         <Element age="99" name="Sam's World"></Element>
 //         <BootstrapElement buttonLabel="Click me" />
+//         <StatefulComponent />
 //       </div>
 //     );
 //   }
