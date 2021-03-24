@@ -1,3 +1,5 @@
+/* Application styling from React pre-built create-react-app */
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,25 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Styling for lorem ipsum page  */
+
+.App-Container {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #cccccc;
+  border-radius: 20px;
+  background-color: #cccccc;
+  margin: 20px;
+}
+
+.spannedText {
+  font-weight: 600;
+  color: #ff0000;
+}
+
+.listDecorators {
+  text-decoration: overline underline;
+  font-size: 16px;
 }
