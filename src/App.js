@@ -244,9 +244,23 @@ import React from "react";
 import Element from "./Components/Element.js";
 import BootstrapElement from "./Components/BootstrapElement.js";
 import StatefulComponent from "./Components/StatefulComponent.js";
+import HoverableComponent from "./Components/HoverableStateComponent.js";
+import ShoppingList from "./Components/ShoppingList.js";
+import Loops from "./Components/Loops";
+// import ClockNoLCM from "./Components/ClockNoLCM.js";
+// import Clock from "./Components/test.js";
+import Counter from "./Components/Counter";
 
 class App extends React.Component {
   render() {
+    // To be passed as props - Loops
+    // const array = [
+    //   { name: "Andy", age: 26, nationality: "Chinese" },
+    //   { name: "Bibek", age: 20, nationality: "Nepalese" },
+    //   { name: "Lesley", age: 26, nationality: "Hong Kong" },
+    //   { name: "Sam", age: 28, nationality: "British" },
+    // ];
+
     return (
       <div className="App">
         <header className="App-header">
@@ -266,6 +280,13 @@ class App extends React.Component {
         <Element age="99" name="Sam's World"></Element>
         <BootstrapElement buttonLabel="Click me" />
         <StatefulComponent />
+        <HoverableComponent />
+        <ShoppingList name="Lesley" />
+        <Loops />
+        {/* <Loops array={array} /> */}
+        {/* <ClockNoLCM /> */}
+        <Counter name="Tom" />
+        <Counter name="William" />
       </div>
     );
   }
