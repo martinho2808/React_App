@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css"; // this allows the css of bootstrap to be used throughout my whole application
-import AppExercise from "./AppExercise.js";
+import AppExercise from "./AppExerciseDay53.js";
 
 ReactDOM.render(
   <React.StrictMode>
