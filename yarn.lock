@@ -2212,6 +2212,11 @@ ajv@^7.0.2:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
+alea@0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/alea/-/alea-0.0.9.tgz#f738cb45f83430069f45cf69ccbf312dd57a9e1a"
+  integrity sha1-9zjLRfg0MAafRc9pzL8xLdV6nho=
+
 alphanum-sort@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
@@ -7418,6 +7423,13 @@ node-notifier@^8.0.0:
     shellwords "^0.1.1"
     uuid "^8.3.0"
     which "^2.0.2"
+
+node-random-name@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/node-random-name/-/node-random-name-1.0.1.tgz#9e2404c7a01e0905a2f76168821edb2dcd14f758"
+  integrity sha1-niQEx6AeCQWi92Fogh7bLc0U91g=
+  dependencies:
+    alea "0.0.9"
 
 node-releases@^1.1.61, node-releases@^1.1.70:
   version "1.1.70"
