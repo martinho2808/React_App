@@ -247,6 +247,8 @@ import Element from "./Element.js";
 import BootstrapElement from "./BootstrapElement.js";
 import StatefulComponent from "./StatefulComponent.js";
 
+import { Button } from "reactstrap";
+
 class App extends React.Component {
   render() {
     return (
@@ -268,6 +270,7 @@ class App extends React.Component {
         <Element age="99" name="Sam's World"></Element>
         <BootstrapElement buttonLabel="Click me" />
         <StatefulComponent />
+        <Button color="danger">ReactStrap Button</Button>
       </div>
     );
   }

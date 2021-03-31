@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import cricketPowder from "../assets/cricketPowder.jpg";
 import cricketPasta from "../assets/cricketPasta.jpg";
 import arrow from "../assets/arrow.png";

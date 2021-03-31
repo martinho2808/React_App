@@ -20,6 +20,7 @@ class StatefulComponent extends React.Component {
         </div>
       );
     });
+    console.log(instructors);
     return (
       <div>
         <h1>
