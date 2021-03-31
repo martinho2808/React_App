@@ -1,5 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Element from "./testElement";
+import SayHello from "./testComponent";
+import SayGoodbye from "./testClassComponent";
 
 function App() {
   return (
@@ -9,6 +12,16 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <h3>Welcome to React</h3>
+        {Element}
+        {/* Not conventional  */}
+        {/* {SayHello({ name: "sam" })} */}
+
+        {/* This is the way */}
+        <SayHello name="sam" />
+
+        <SayGoodbye name="John" />
+
         <a
           className="App-link"
           href="https://reactjs.org"
