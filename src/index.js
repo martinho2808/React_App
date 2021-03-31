@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css"; // this allows the css of bootstrap to be used throughout my whole application
+import App1 from "./App1";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -11,6 +12,14 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+
+// un comment below for JSX elements
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App1 />
+//   </React.StrictMode>,
+//   document.getElementById("root")
+// );
 
 // code to implement the JSX element within the React application.
 

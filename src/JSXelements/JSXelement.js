@@ -3,7 +3,7 @@ import cricketPowder from "../assets/cricketPowder.jpg";
 import cricketPasta from "../assets/cricketPasta.jpg";
 import arrow from "../assets/arrow.png";
 
-export const newElement = (
+export const JSXelement = (
   <div>
     <h1>Welcome to my react application</h1>
     <h4>My to do list:</h4>
