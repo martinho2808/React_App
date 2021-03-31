@@ -1,6 +1,6 @@
 import RandomName from "node-random-name";
 import React from "react";
-import Counter from "./Counter";
+import Counter from "./CounterWLB";
 
 export default class LeaderBoard extends React.Component {
   constructor(props) {
@@ -48,7 +48,9 @@ export default class LeaderBoard extends React.Component {
     });
   };
 
-  handleClickMinus(i) {
+  handleClickMinus = (i) => {
+    console.log(i);
+    console.log(this.state.counters[i].name);
     // handle immutability
     let newObj = {
       ...this.state.counters[i],
@@ -59,9 +61,9 @@ export default class LeaderBoard extends React.Component {
     this.setState({
       counters: newArray,
     });
-  }
+  };
 
-  handleClickPlus(i) {
+  handleClickPlus = (i) => {
     let newObj = {
       ...this.state.counters[i],
       count: this.state.counters[i].count + 1,
@@ -71,20 +73,20 @@ export default class LeaderBoard extends React.Component {
     this.setState({
       counters: newArray,
     });
-  }
+  };
 
-  renderCounter(i, name, count) {
+  renderCounter = (i, name, count) => {
     return (
       <Counter
         count={count}
         name={name}
         key={i}
-        decrement={this.handleClickMinus}
-        indecrement={this.handleClickPlus}
-        deleteCounter={this.removeCounter}
+        decrement={() => this.handleClickMinus(i)}
+        increment={() => this.handleClickPlus(i)}
+        deleteCounter={() => this.removeCounter(i)}
       />
     );
-  }
+  };
 
   render() {
     // Exercise B

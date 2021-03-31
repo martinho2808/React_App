@@ -1,7 +1,7 @@
 import Questioner from "./Components/Exercise/Questioner";
 import LeaderBoard from "./Components/Exercise/LeaderBoard";
 
-export default function App() {
+export default function AppExercise() {
   return (
     <>
       <h3>Here are the exercises</h3>
