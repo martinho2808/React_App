@@ -4,14 +4,22 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css"; // this allows the css of bootstrap to be used throughout my whole application
+import AppExercise from "./AppExercise.js";
 
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+//   document.getElementById("root")
+// );
+
+// uncomment below and comment out above for exercises
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppExercise />
   </React.StrictMode>,
   document.getElementById("root")
 );
-
 // code to implement the JSX element within the React application.
 
 // import ReactDOM from "react-dom";
