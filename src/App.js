@@ -15,6 +15,7 @@ import Counter from "./Components/Counter";
 import CurrencyConverter from "./Components/CurrencyConverter";
 
 import AddFormItem from "./Components/Form.js";
+import Clock from "./Components/Clock.js";
 
 class App extends React.Component {
   render() {
@@ -54,6 +55,7 @@ class App extends React.Component {
         <HoverableComponent />
         <ShoppingList list={shopping} name="Lesley" />
         <Loops />
+        <Clock />
         {/* <Loops array={array} /> */}
         {/* <ClockNoLCM /> */}
         <Counter name="Tom" />
