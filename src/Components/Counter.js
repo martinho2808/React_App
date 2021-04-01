@@ -9,6 +9,9 @@ export default class Counter extends React.Component {
     };
   }
   handleIncrement = () => {
+    // alter the data directly - incorrect
+    // this.state.count = this.state.count + 1;
+
     this.setState({
       count: this.state.count + 1,
     });
@@ -19,6 +22,10 @@ export default class Counter extends React.Component {
       count: this.state.count - 1,
     });
   };
+
+  componentDidUpdate() {
+    console.log("stateChange - remounted");
+  }
 
   render() {
     return (

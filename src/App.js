@@ -247,8 +247,7 @@ import StatefulComponent from "./Components/StatefulComponent.js";
 import HoverableComponent from "./Components/HoverableStateComponent.js";
 import ShoppingList from "./Components/ShoppingList.js";
 import Loops from "./Components/Loops";
-// import ClockNoLCM from "./Components/ClockNoLCM.js";
-// import Clock from "./Components/test.js";
+import ClockNoLCM from "./Components/ClockNoLCM.js";
 import Counter from "./Components/Counter";
 
 class App extends React.Component {
@@ -284,7 +283,7 @@ class App extends React.Component {
         <ShoppingList name="Lesley" />
         <Loops />
         {/* <Loops array={array} /> */}
-        {/* <ClockNoLCM /> */}
+        <ClockNoLCM />
         <Counter name="Tom" />
         <Counter name="William" />
       </div>
