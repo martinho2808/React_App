@@ -26,6 +26,12 @@ class App extends React.Component {
     //   { name: "Sam", age: 28, nationality: "British" },
     // ];
 
+    const shopping = [
+      { item: "Potato" },
+      { item: "Bacon" },
+      { item: "Mayonnaise" },
+    ];
+
     return (
       <div className="App">
         <header className="App-header">
@@ -46,7 +52,7 @@ class App extends React.Component {
         <BootstrapElement buttonLabel="Click me" />
         <StatefulComponent />
         <HoverableComponent />
-        <ShoppingList name="Lesley" />
+        <ShoppingList list={shopping} name="Lesley" />
         <Loops />
         {/* <Loops array={array} /> */}
         {/* <ClockNoLCM /> */}
