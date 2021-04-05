@@ -16,6 +16,10 @@ import CurrencyConverter from "./Components/CurrencyConverter";
 
 import AddFormItem from "./Components/Form.js";
 import Clock from "./Components/Clock.js";
+import APICall from "./Components/APICall";
+import WhoIsInSpace from "./Components/WhoIsInSpace.js";
+
+import Top from "./Components/useEffectEx.js";
 
 class App extends React.Component {
   render() {
@@ -58,6 +62,8 @@ class App extends React.Component {
         <Clock />
         {/* <Loops array={array} /> */}
         {/* <ClockNoLCM /> */}
+        <APICall pokemon="pikachu" />
+        <WhoIsInSpace />
         <Counter name="Tom" />
         <Counter name="William" />
         <div className="row">
@@ -68,6 +74,7 @@ class App extends React.Component {
             <CurrencyConverter />
           </div>
         </div>
+        <Top />
       </div>
     );
   }
