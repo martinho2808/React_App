@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Home from "./Home.js";
 import Profile from "./Profile.js";
+import Welcome from "./Welcome.js";
 
 function App() {
   const link = {
@@ -32,10 +33,12 @@ function App() {
         <h4>Part of landing page</h4>
       </div>
       {/* Not Displayed on the screen */}
-      <div>
+
+      <Switch>
         <Route path="/home" component={Home} />
         <Route path="/profile" component={Profile} />
-      </div>
+        <Route path="/" component={Welcome} />
+      </Switch>
     </div>
   );
 }
