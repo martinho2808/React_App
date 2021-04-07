@@ -1,36 +1,35 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Element from "./testElement";
-import SayHello from "./testComponent";
-import SayGoodbye from "./testClassComponent";
+import { Link, Route } from "react-router-dom";
+import Home from "./Home.js";
+import Profile from "./Profile.js";
 
 function App() {
+  const link = {
+    margin: "20px",
+    textDecoration: "none",
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <h3>Welcome to React</h3>
-        {Element}
-        {/* Not conventional  */}
-        {/* {SayHello({ name: "sam" })} */}
-
-        {/* This is the way */}
-        <SayHello name="sam" />
-
-        <SayGoodbye name="John" />
-
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* Displayed on the screen */}
+      <h2>
+        Welcome to the Application Click on the links below to see new 'pages'
+      </h2>
+      <nav>
+        <Link style={link} to="/home">
+          Home
+        </Link>
+        <Link style={link} to="/profile">
+          {" "}
+          Profile
+        </Link>
+      </nav>
+      <div>
+        <h4>Part of landing page</h4>
+      </div>
+      {/* Not Displayed on the screen */}
+      <div>
+        <Route path="/home" component={Home} />
+        <Route path="/profile" component={Profile} />
+      </div>
     </div>
   );
 }
