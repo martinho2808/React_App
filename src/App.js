@@ -1,4 +1,10 @@
-import { Link, Route } from "react-router-dom";
+import {
+  Switch,
+  useRouteMatch,
+  useParams,
+  Link,
+  Route,
+} from "react-router-dom";
 import Home from "./Home.js";
 import Profile from "./Profile.js";
 
