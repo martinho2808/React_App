@@ -1,0 +1,7 @@
+From todays work you can start making all of the shareLink weekly assignment.
+
+The add button should contain a modal and the logic to accept and handler user input.
+Store the links within the browsers local storage, you will need to json.stringify to store and json.parse when retrieving from the browsers local storage
+The search bar should take the users input to the app component. Use that information to filter the links
+
+Links should be passed to the linkedList component
