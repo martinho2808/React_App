@@ -5,7 +5,7 @@ import "./App.css";
 
 import React from "react";
 import Element from "./Components/Element.js";
-import BootstrapElement from "./Components/BootstrapElement.js";
+// import BootstrapElement from "./Components/BootstrapElement.js";
 import StatefulComponent from "./Components/StatefulComponent.js";
 import HoverableComponent from "./Components/HoverableStateComponent.js";
 import ShoppingList from "./Components/ShoppingList.js";
@@ -22,6 +22,20 @@ import WhoIsInSpace from "./Components/WhoIsInSpace.js";
 import Top from "./Components/useEffectEx.js";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      clock: false,
+    };
+  }
+
+  getClock = () => {
+    this.setState({
+      clock: !this.state.clock,
+    });
+  };
+
   render() {
     // To be passed as props - Loops
     // const array = [
@@ -54,12 +68,13 @@ class App extends React.Component {
           </a>
         </header>
         <Element age="99" name="Sam's World"></Element>
-        <BootstrapElement buttonLabel="Click me" />
+        {/* <BootstrapElement buttonLabel="Click me" /> */}
         <StatefulComponent />
         <HoverableComponent />
         <ShoppingList list={shopping} name="Lesley" />
         <Loops />
-        <Clock />
+        <button onClick={this.getClock}>GetClock</button>
+        {this.state.clock ? <Clock /> : "No clock"}
         {/* <Loops array={array} /> */}
         {/* <ClockNoLCM /> */}
         <APICall pokemon="pikachu" />

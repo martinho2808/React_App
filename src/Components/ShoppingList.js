@@ -39,12 +39,18 @@ import InputForm from "./InputForm";
 export default function ShoppingList(props) {
   const [list, setList] = useState(props.list);
 
+  // added in new layer so that I can update list properly.
+  const handleNewItem = (info) => {
+    console.log(info);
+    setList(list.concat(info));
+  };
+
   const shoppingListItems = list.map((listItem, i) => (
     <div key={i}>{listItem.item}</div>
   ));
   return (
     <>
-      <InputForm label="Shopping Items" addItemProps={setList} />
+      <InputForm label="Shopping Items" addItemProp={handleNewItem} />
       <h3>Shopping List for {props.name}</h3>
       {shoppingListItems}
     </>

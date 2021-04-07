@@ -6,7 +6,19 @@ const Loops = () => {
     { name: "Lesley", age: 26, nationality: "Hong Kong" },
     { name: "Sam", age: 28, nationality: "British" },
   ];
-
+  const instructors = array.map((value, index) => {
+    return (
+      <div style={{ padding: "40px", border: "2px solid #ff0000" }} key={index}>
+        <h3>User:</h3>
+        <p>{value.name}</p>
+        <h3>Age:</h3>
+        <p>{value.age}</p>
+        <h3>Nationality:</h3>
+        <p>{value.nationality}</p>
+        <br />
+      </div>
+    );
+  });
   return (
     <>
       <h1>Xccelerate Software Engineers</h1>
@@ -16,22 +28,7 @@ const Loops = () => {
           justifyContent: "space-around",
         }}
       >
-        {array.map((value, index) => {
-          return (
-            <div
-              style={{ padding: "40px", border: "2px solid #ff0000" }}
-              key={index}
-            >
-              <h3>User:</h3>
-              <p>{value.name}</p>
-              <h3>Age:</h3>
-              <p>{value.age}</p>
-              <h3>Nationality:</h3>
-              <p>{value.nationality}</p>
-              <br />
-            </div>
-          );
-        })}
+        {instructors}
       </div>
     </>
   );
