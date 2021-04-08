@@ -5,11 +5,22 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css"; // this allows the css of bootstrap to be used throughout my whole application
 import AppExercise from "./AppExerciseDay53.js";
+import AppExercise54 from "./AppExerciseDay54.js";
 
+import { BrowserRouter as Router } from "react-router-dom";
+
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+//   document.getElementById("root")
+// );
+
+// Uncomment below block and comment out above for day54.
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Router>
+    <AppExercise54 />
+  </Router>,
   document.getElementById("root")
 );
 
