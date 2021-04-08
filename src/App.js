@@ -1,38 +1,5 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Element from "./testElement";
-import SayHello from "./testComponent";
-import SayGoodbye from "./testClassComponent";
-
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <h3>Welcome to React</h3>
-        {Element}
-        {/* Not conventional  */}
-        {/* {SayHello({ name: "sam" })} */}
-
-        {/* This is the way */}
-        <SayHello name="sam" />
-
-        <SayGoodbye name="John" />
-
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <div></div>;
 }
 
 export default App;
