@@ -15,6 +15,9 @@ export default class Clock extends React.Component {
     console.log("unmounting");
     clearInterval(this.timerID);
   }
+  componentDidUpdate() {
+    console.log("remounting?");
+  }
   tick() {
     this.setState({
       date: new Date(),
@@ -41,9 +44,11 @@ export default class Clock extends React.Component {
 
 //   useEffect(() => {
 //     const timerID = setInterval(tick, 1);
+//     console.log("Mounting");
 
 //     return () => {
 //       clearInterval(timerID);
+//       console.log("UnMounting");
 //     };
 //   });
 

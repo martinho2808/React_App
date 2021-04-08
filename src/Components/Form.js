@@ -13,16 +13,34 @@ export default class AddFormItems extends React.Component {
     };
   }
 
-  handleNameChange = (e) => {
-    this.setState({
-      firstName: e.currentTarget.value,
-    });
-  };
+  // handleNameChange = (e) => {
+  //   console.log("OMG typinh name");
 
-  handleEmailChange = (e) => {
-    this.setState({
-      email: e.currentTarget.value,
-    });
+  //   this.setState({
+  //     firstName: e.currentTarget.value,
+  //   });
+  // };
+
+  // handleEmailChange = (e) => {
+  //   console.log("OMG typinh email");
+  //   this.setState({
+  //     email: e.currentTarget.value,
+  //   });
+  // };
+
+  // single handling func
+  handleInputChange = (e) => {
+    if (e.currentTarget.name === "firstName") {
+      console.log("NAME");
+      this.setState({
+        firstName: e.currentTarget.value,
+      });
+    } else {
+      console.log("EMAIL");
+      this.setState({
+        email: e.currentTarget.value,
+      });
+    }
   };
 
   handleOptionChange = (val) => {
@@ -78,7 +96,7 @@ export default class AddFormItems extends React.Component {
           <input
             name="firstName"
             value={this.state.firstName}
-            onChange={this.handleNameChange}
+            onChange={this.handleInputChange}
           />
           <br />
           <label>Email:</label>
@@ -86,7 +104,7 @@ export default class AddFormItems extends React.Component {
           <input
             name="email"
             value={this.state.email}
-            onChange={this.handleEmailChange}
+            onChange={this.handleInputChange}
           />
           <br />
           <Button type="submit" value="submit" color="primary">
