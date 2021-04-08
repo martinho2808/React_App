@@ -21,11 +21,13 @@ function App() {
         Welcome to the Application Click on the links below to see new 'pages'
       </h2>
       <nav>
+        <Link style={link} to="/">
+          /
+        </Link>
         <Link style={link} to="/home">
           Home
         </Link>
         <Link style={link} to="/profile">
-          {" "}
           Profile
         </Link>
       </nav>
