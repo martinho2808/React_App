@@ -108,3 +108,38 @@ export default class GetSpaceMan extends React.Component {
 //     </>
 //   );
 // }
+
+//import React from "react";
+// import axios from "axios";
+// export default class App extends React.Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.state = {
+//       users: [{ name: "Sam" }, { name: "Lesley" }],
+//     };
+//   }
+
+//   getData = () => {
+//     axios.get(`${process.env.REACT_APP_API_SERVER}/api/user`).then((data) => {
+//       this.setState({
+//         users: data,
+//       });
+//     });
+//   };
+
+//   render() {
+//     this.getData();
+//     return (
+//       <div className="App">
+//         <h1> Simple Backend Data Fetch</h1>
+//         <ul>
+//           {this.state.users &&
+//             this.state.users.map((user, index) => (
+//               <li key={index}> {user && user.name}</li>
+//             ))}
+//         </ul>
+//       </div>
+//     );
+//   }
+// }
