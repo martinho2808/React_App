@@ -126,8 +126,6 @@ export const LinkList = (props) => {
   const [title, setTitle] = useState("Insert Title here");
 
   const linksFromRedux = useSelector((state) => state.linkStore.links);
-  const { links } = linksFromRedux;
-  console.log(links);
 
   const dispatch = useDispatch();
 
@@ -164,10 +162,10 @@ export const LinkList = (props) => {
       <br />
       <button onClick={submitLink}> New Link</button>
       <button onClick={clearLink}>Clear Links</button>
-      <button onClick={dispatch(loadLinkThunk())}>All Link API</button>
+      <button onClick={() => dispatch(loadLinkThunk())}>All Link API</button>
 
       <h2>Links</h2>
-      {links.map((link, i) => (
+      {linksFromRedux.map((link, i) => (
         <div key={i}>
           {link.title} - {link.url}
           <button onClick={(i) => deleteLink(i)}>Delete Link</button>

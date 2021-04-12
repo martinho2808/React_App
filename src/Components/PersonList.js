@@ -95,8 +95,6 @@ export const PersonList = (props) => {
   const [age, setAge] = useState(18);
 
   const peopleFromRedux = useSelector((state) => state.peopleStore.people);
-  const { people } = peopleFromRedux;
-  console.log(people);
 
   const dispatch = useDispatch();
 
@@ -114,7 +112,7 @@ export const PersonList = (props) => {
   return (
     <>
       <h2>People</h2>
-      {people.map((person, i) => (
+      {peopleFromRedux.map((person, i) => (
         <div key={i}>
           {person.name} - {person.age}
         </div>
