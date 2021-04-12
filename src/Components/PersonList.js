@@ -85,3 +85,57 @@ export const PersonList = connect(
   mapStateToProps,
   mapDispatchToProps
 )(PurePersonList);
+
+// Hooks Example
+// import { useState } from "react";
+// import { useSelector, useDispatch } from "react-redux";
+// import { AddPerson } from "../Redux/people/actions";
+
+// export const PersonList = (props) => {
+//   const [person, setPerson] = useState("Insert Persons Name and Age");
+//   const [age, setAge] = useState(18);
+
+//   const peopleFromRedux = useSelector((state) => state.peopleStore.people);
+
+//   const dispatch = useDispatch();
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     const newPerson = {
+//       name: person,
+//       age: age,
+//     };
+//     dispatch(AddPerson(newPerson));
+//     setPerson("Insert Persons Name and Age");
+//     setAge(18);
+//   };
+
+//   return (
+//     <>
+//       <h2>People</h2>
+//       {peopleFromRedux.map((person, i) => (
+//         <div key={i}>
+//           {person.name} - {person.age}
+//         </div>
+//       ))}
+
+//       <h3>Add Person</h3>
+//       <input
+//         type="text"
+//         value={person}
+//         onChange={(e) => setPerson(e.currentTarget.value)}
+//       />
+//       <br />
+//       <input
+//         type="number"
+//         value={age}
+//         onChange={(e) => setAge(e.currentTarget.value)}
+//       />
+//       <br />
+//       <button type="submit" onClick={handleSubmit}>
+//         {" "}
+//         Submit Person
+//       </button>
+//     </>
+//   );
+// };
