@@ -94,8 +94,9 @@ export const PersonList = (props) => {
   const [person, setPerson] = useState("Insert Persons Name and Age");
   const [age, setAge] = useState(18);
 
-  const peopleFromRedux = useSelector((state) => state.people);
+  const peopleFromRedux = useSelector((state) => state.peopleStore.people);
   const { people } = peopleFromRedux;
+  console.log(people);
 
   const dispatch = useDispatch();
 

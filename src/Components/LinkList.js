@@ -125,8 +125,9 @@ export const LinkList = (props) => {
   const [url, setUrl] = useState("Insert URL here");
   const [title, setTitle] = useState("Insert Title here");
 
-  const linksFromRedux = useSelector((state) => state.links);
+  const linksFromRedux = useSelector((state) => state.linkStore.links);
   const { links } = linksFromRedux;
+  console.log(links);
 
   const dispatch = useDispatch();
 
