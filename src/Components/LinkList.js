@@ -1,7 +1,11 @@
 import React from "react";
-
 import { connect } from "react-redux";
-import { CLEAR_LINKS, AddLink, DeleteLink } from "../Redux/links/actions";
+import {
+  CLEAR_LINKS,
+  AddLink,
+  DeleteLink,
+  loadLinkThunk,
+} from "../Redux/links/actions";
 
 class PureLinkList extends React.Component {
   constructor(props) {
@@ -65,6 +69,7 @@ class PureLinkList extends React.Component {
         <br />
         <button onClick={this.submitLink}>New Link</button>
         <button onClick={this.props.clearLinkMDP}>Clear Links</button>
+        <button onClick={this.props.loadLinkThunkMDP}>Load Links</button>
 
         {/* Code to display links from the Redux store */}
         <h3>Links:</h3>
@@ -98,6 +103,7 @@ const mapDispatchToProps = (dispatch) => {
         type: CLEAR_LINKS,
       }),
     deleteLinkMDP: (i) => dispatch(DeleteLink(i)),
+    loadLinkThunkMDP: () => dispatch(loadLinkThunk()),
   };
 };
 
