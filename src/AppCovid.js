@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import CovidCard from "../Components/Exercise/CovidCard";
+import CovidCard from "./Components/Exercise/CovidCard";
 
 const CovidPage = () => {
   const [propsList, setPropsList] = useState([]);
