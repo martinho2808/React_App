@@ -22,7 +22,7 @@ class PureLinkList extends React.Component {
       url: this.state.url,
     };
 
-    this.props.addLink(link);
+    this.props.addLinkMDP(link);
 
     this.setState({
       url: "Insert Link Here",
@@ -64,7 +64,7 @@ class PureLinkList extends React.Component {
         />
         <br />
         <button onClick={this.submitLink}>New Link</button>
-        <button onClick={this.props.clearLink}>Clear Links</button>
+        <button onClick={this.props.clearLinkMDP}>Clear Links</button>
 
         {/* Code to display links from the Redux store */}
         <h3>Links:</h3>
@@ -72,7 +72,7 @@ class PureLinkList extends React.Component {
           <div key={i}>
             {link.title} - {link.url}
             {/* Button to delete te link */}
-            <button onClick={() => this.props.deleteLink(i)}>
+            <button onClick={() => this.props.deleteLinkMDP(i)}>
               Delete Link
             </button>
           </div>
@@ -84,20 +84,20 @@ class PureLinkList extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    links: state.link.links,
+    links: state.linkStore.links,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     // dispatching an action to alter the state
-    addLink: (link) => dispatch(AddLink(link)),
+    addLinkMDP: (link) => dispatch(AddLink(link)),
     // dispatching an action creator
-    clearLink: () =>
+    clearLinkMDP: () =>
       dispatch({
         type: CLEAR_LINKS,
       }),
-    deleteLink: (i) => dispatch(DeleteLink(i)),
+    deleteLinkMDP: (i) => dispatch(DeleteLink(i)),
   };
 };
 

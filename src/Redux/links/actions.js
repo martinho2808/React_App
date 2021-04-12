@@ -1,11 +1,10 @@
-// Action Creators
+// Action Constants
 
 export const ADD_LINK = "ADD_LINK";
 export const CLEAR_LINKS = "CLEAR_LINKS";
-
 export const DELETE_LINK = "DELETE_LINK";
 
-// Actions
+// Action Creators
 
 export function AddLink(link) {
   return {

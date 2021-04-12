@@ -69,7 +69,7 @@ class PurePersonList extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    people: state.people.people,
+    people: state.peopleStore.people,
   };
 };
 
