@@ -16,7 +16,7 @@ import PeoplePage from "./Pages/PeoplePage";
 import UsersPage from "./Pages/UsersPage";
 import { logoutNowThunk } from "./Redux/auth/actions";
 
-const PrivateRoute = ({ component, isAuthenticated, ...rest }) => {
+const PurePrivateRoute = ({ component, isAuthenticated, ...rest }) => {
   const Component = component;
   if (Component != null) {
     return (
@@ -37,7 +37,13 @@ const PrivateRoute = ({ component, isAuthenticated, ...rest }) => {
     return null;
   }
 };
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: state.authStore.isAuthenticated,
+  };
+};
 
+const PrivateRoute = connect(mapStateToProps)(PurePrivateRoute);
 class App extends React.Component {
   render() {
     return (

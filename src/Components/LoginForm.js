@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { loginUserThunk } from "./redux/actions/actions";
+import { loginUserThunk } from "../Redux/auth/actions";
 import { withRouter } from "react-router-dom";
 
 class Login extends React.Component {

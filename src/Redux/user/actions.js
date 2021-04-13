@@ -13,6 +13,7 @@ export const getUser = () => async (dispatch) => {
         headers: { Authorization: `Bearer ${token}` },
       }
     );
+    console.log(data);
     if (data == null) {
       dispatch({
         type: USER_GET_FAILURE,
