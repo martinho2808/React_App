@@ -14,6 +14,7 @@ import LoginPage from "./Pages/LoginPage";
 import LinksPage from "./Pages/LinksPage";
 import PeoplePage from "./Pages/PeoplePage";
 import UsersPage from "./Pages/UsersPage";
+import GroupsPage from "./Pages/GroupsPage";
 import { logoutNowThunk } from "./Redux/auth/actions";
 
 const PrivateRoute = ({ component, isAuthenticated, ...rest }) => {
@@ -54,6 +55,9 @@ class App extends React.Component {
               <Link to="/links">Links</Link>
             </NavItem>
             <NavItem>
+              <Link to="/groups">Groups</Link>
+            </NavItem>
+            <NavItem>
               <Link to="/login">Login</Link>
             </NavItem>
             <button onClick={() => this.props.logOutMDP()}>Logout</button>
@@ -61,6 +65,7 @@ class App extends React.Component {
 
           <Route path="/login" component={LoginPage} />
           <PrivateRoute path="/users" component={UsersPage} />
+          <PrivateRoute path="/groups" component={GroupsPage} />
           <PrivateRoute path="/people" component={PeoplePage} />
           <PrivateRoute path="/links" component={LinksPage} />
         </div>
