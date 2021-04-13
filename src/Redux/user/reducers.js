@@ -7,7 +7,7 @@ const initialState = {
 export function userReducer(state = initialState, action) {
   switch (action.type) {
     case USER_GET_SUCCESS:
-      return Object.assign({}, { users: action.payload });
+      return Object.assign({}, { user: action.payload });
 
     case USER_GET_FAILURE:
       return state;
