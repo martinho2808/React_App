@@ -127,6 +127,20 @@ export const LinkList = (props) => {
 
   const linksFromRedux = useSelector((state) => state.linkStore.links);
 
+  const displayLinks = linksFromRedux.map((link, i) => (
+    <div key={i}>
+      {link.title} - {link.url}
+      <button
+        onClick={() => {
+          console.log(i);
+          deleteLink(i);
+        }}
+      >
+        Delete Link
+      </button>
+    </div>
+  ));
+
   const dispatch = useDispatch();
 
   const submitLink = (e) => {
@@ -142,6 +156,7 @@ export const LinkList = (props) => {
 
   const clearLink = () => dispatch({ type: CLEAR_LINKS });
   const deleteLink = (i) => {
+    console.log(i);
     dispatch(DeleteLink(i));
   };
 
@@ -165,12 +180,7 @@ export const LinkList = (props) => {
       <button onClick={() => dispatch(loadLinkThunk())}>All Link API</button>
 
       <h2>Links</h2>
-      {linksFromRedux.map((link, i) => (
-        <div key={i}>
-          {link.title} - {link.url}
-          <button onClick={(i) => deleteLink(i)}>Delete Link</button>
-        </div>
-      ))}
+      {displayLinks}
     </>
   );
 };

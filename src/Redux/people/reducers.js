@@ -1,4 +1,8 @@
-import { ADD_PERSON } from "./actions";
+import {
+  ADD_PERSON,
+  SPACE_PEOPLE_SUCCESS_ACTION,
+  SPACE_PEOPLE_FAILURE_ACTION,
+} from "./actions";
 
 const initialState = {
   people: [
@@ -15,6 +19,12 @@ export function peopleReducer(state = initialState, action) {
       return {
         people: state.people.concat([action.payload]),
       };
+    case SPACE_PEOPLE_SUCCESS_ACTION:
+      return {
+        people: state.people.concat([...action.payload]),
+      };
+    case SPACE_PEOPLE_FAILURE_ACTION:
+      return state;
     default:
       return state;
   }

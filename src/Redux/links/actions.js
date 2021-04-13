@@ -20,6 +20,7 @@ export function AddLink(link) {
 }
 
 export function DeleteLink(i) {
+  console.log(i);
   return {
     type: DELETE_LINK,
     payload: i,
