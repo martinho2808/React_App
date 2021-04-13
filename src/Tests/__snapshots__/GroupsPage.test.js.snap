@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GroupsPage /> renders complete snapshot 1`] = `
+Array [
+  <h1>
+    Welcome to the GroupsPage
+  </h1>,
+  <p>
+    We are all in special groups now....
+  </p>,
+]
+`;

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getUser } from "./redux/actions/actions";
+import { getUser } from "../Redux/user/actions";
 
 class UsersPage extends React.Component {
   componentDidMount() {
