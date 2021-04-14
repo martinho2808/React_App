@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { loginUserThunk } from "../Redux/auth/actions";
+import { loginUserThunk, loginFacebookThunk } from "../Redux/auth/actions";
 import { withRouter } from "react-router-dom";
+import FacebookLogin from "react-facebook-login";
 
 class Login extends React.Component {
   constructor(props) {
@@ -35,6 +36,18 @@ class Login extends React.Component {
     }
   };
 
+  componentClicked() {
+    console.log("clicked");
+    return null;
+  }
+
+  responseFacebook = (userInfo) => {
+    if (userInfo.accessToken) {
+      this.props.loginFacebookMDP(userInfo.accessToken);
+    }
+    return null;
+  };
+
   render() {
     return (
       <>
@@ -58,6 +71,14 @@ class Login extends React.Component {
         <br />
         <button onClick={this.login}>Login </button>
         {this.props.isAuthticated && <p>Login works</p>}
+
+        <FacebookLogin
+          appId={process.env.REACT_APP_FACEBOOK_APP_ID || ""}
+          autoLoad={true}
+          fields="name,email,picture"
+          onClick={this.componentClicked}
+          callback={this.responseFacebook}
+        />
       </>
     );
   }
@@ -72,6 +93,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     loginUserMDP: (email, password) =>
       dispatch(loginUserThunk(email, password)),
+    loginFacebookMDP: (accessToken) => {
+      dispatch(loginFacebookThunk(accessToken));
+    },
   };
 };
 

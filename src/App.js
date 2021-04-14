@@ -62,7 +62,9 @@ class App extends React.Component {
             <NavItem>
               <Link to="/login">Login</Link>
             </NavItem>
-            <button onClick={() => this.props.logOutMDP()}>Logout</button>
+            {this.props.isAuthenticated ? (
+              <button onClick={() => this.props.logOutMDP()}>Logout</button>
+            ) : null}
           </Navbar>
 
           <Route path="/login" component={LoginPage} />
@@ -75,10 +77,16 @@ class App extends React.Component {
   }
 }
 
+const mapStateToPropsApp = (state) => {
+  return {
+    isAuthenticated: state.authStore.isAuthenticated,
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     logOutMDP: () => dispatch(logoutNowThunk()),
   };
 };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToPropsApp, mapDispatchToProps)(App);
