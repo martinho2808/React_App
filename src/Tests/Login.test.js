@@ -2,11 +2,12 @@ import React from "react";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 // introducing fireEvent() method
-import { render, fireEvent, waitFor, screen } from "./test-utils";
+import { render, fireEvent, waitFor, screen } from "@testing-library/react";
 // introducing .toHaveTextContent() method
 import "@testing-library/jest-dom/extend-expect";
-import { BrowserRouter, Route } from "react-router-dom";
 import Login from "../Components/LoginForm";
+import { Provider } from "react-redux";
+import { store } from "../Redux/store";
 
 const server = setupServer(
   rest.post(
@@ -25,24 +26,6 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 describe("<Login />", () => {
-  it("can show success message after login", async () => {
-    render(
-      <BrowserRouter>
-        <Route>
-          <Login />
-        </Route>
-      </BrowserRouter>
-    );
-    fireEvent.change(screen.getByLabelText(/email/i), {
-      currentTarget: { value: "sam" },
-    });
-    fireEvent.change(screen.getByLabelText(/password/i), {
-      currentTarget: { value: "123" },
-    });
-    fireEvent.click(screen.getByText("Login"));
-    let result = await screen.findByText(/work/i);
-    expect(result).toHaveTextContent(/login/i);
-  });
   it("handles server error", async () => {
     server.use(
       rest.post(
@@ -53,15 +36,30 @@ describe("<Login />", () => {
       )
     );
     render(
-      <BrowserRouter>
-        <Route>
-          <Login />
-        </Route>
-      </BrowserRouter>
+      <Provider store={store}>
+        <Login history={[]} />
+      </Provider>
     );
     fireEvent.click(screen.getByText("Login"));
     await waitFor(() => {
       expect(screen.queryByText(/success/i)).toBeFalsy();
     });
+  });
+
+  it("can show success message after login", async () => {
+    render(
+      <Provider store={store}>
+        <Login history={[]} />
+      </Provider>
+    );
+    fireEvent.change(screen.getByLabelText(/username/i), {
+      currentTarget: { value: "sam" },
+    });
+    fireEvent.change(screen.getByLabelText(/password/i), {
+      currentTarget: { value: "123" },
+    });
+    fireEvent.click(screen.getByText("Login"));
+    let result = await screen.findByText(/success/i);
+    expect(result).toHaveTextContent(/login/i);
   });
 });
