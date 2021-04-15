@@ -14,12 +14,12 @@ export const getUser = () => async (dispatch) => {
       }
     );
     if (data == null) {
-      dispatch({
+      return dispatch({
         type: USER_GET_FAILURE,
         message: "No data received",
       });
     } else {
-      dispatch({
+      return dispatch({
         type: USER_GET_SUCCESS,
         payload: data,
       });

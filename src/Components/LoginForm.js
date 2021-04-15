@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { loginUserThunk } from "./redux/actions/actions";
+import { loginUserThunk } from "../Redux/auth/actions";
 import { withRouter } from "react-router-dom";
 
 class Login extends React.Component {
@@ -14,7 +14,7 @@ class Login extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.isAuthticated === true) {
+    if (this.props.isAuthenticated === true) {
       this.props.history.push("/users");
     }
   }
@@ -38,26 +38,30 @@ class Login extends React.Component {
   render() {
     return (
       <>
-        <label>Email: </label>
+        <label>
+          Email:
+          <br />
+          <input
+            type="text"
+            value={this.state.email}
+            onChange={this.handleInputChange}
+            name="email"
+          />
+        </label>
         <br />
-        <input
-          type="text"
-          value={this.state.email}
-          onChange={this.handleInputChange}
-          name="email"
-        />
-        <br />
-        <label>Password: </label>
-        <br />
-        <input
-          type="text"
-          value={this.state.password}
-          onChange={this.handleInputChange}
-          name="password"
-        />
+        <label>
+          Password:
+          <br />
+          <input
+            type="text"
+            value={this.state.password}
+            onChange={this.handleInputChange}
+            name="password"
+          />
+        </label>
         <br />
         <button onClick={this.login}>Login </button>
-        {this.props.isAuthticated && <p>Login works</p>}
+        {this.props.isAuthenticated && <p>Login works</p>}
       </>
     );
   }
@@ -65,7 +69,7 @@ class Login extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    isAuthticated: state.authStore.isAuthticated,
+    isAuthenticated: state.authStore.isAuthenticated,
   };
 };
 const mapDispatchToProps = (dispatch) => {

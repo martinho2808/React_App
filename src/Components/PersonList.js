@@ -90,6 +90,7 @@ export const PersonList = connect(
   mapDispatchToProps
 )(PurePersonList);
 
+// Hooks
 // import { useState } from "react";
 // import { useSelector, useDispatch } from "react-redux";
 // import { AddPerson, loadSpacePeopleThunk } from "../Redux/people/actions";

@@ -24,7 +24,7 @@ class UsersPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    usersMSP: state.userStore.user,
+    usersMSP: state.userStore.user, // removed for mocking tests
   };
 };
 
@@ -39,10 +39,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(UsersPage);
 // Hooks:
 // import React, { useEffect } from "react";
 // import { useSelector, useDispatch } from "react-redux";
-// import { getUser } from "./redux/actions/actions";
+// import { getUser } from "../Redux/user/actions";
 
 // const UsersPage = () => {
-//   const { users } = useSelector((state) => state.user);
+//   const { users } = useSelector((state) => state.userStore.user);
 //   const dispatch = useDispatch();
 //   useEffect(() => {
 //     dispatch(getUser());
