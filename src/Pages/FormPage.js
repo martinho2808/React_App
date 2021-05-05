@@ -6,7 +6,6 @@ function FormPage() {
   const [password, setPassword] = useState("insert password");
   const [selectedFile, setSelectedFile] = useState(null);
   const [isFilePicked, setIsFilePicked] = useState(false);
-  const form = useRef(null);
   function handleFileChange(e) {
     setSelectedFile(e.target.files[0]);
     setIsFilePicked(true);
@@ -15,14 +14,10 @@ function FormPage() {
     e.preventDefault();
     console.log("Submission!");
     let newFormData = new FormData(e.target);
-    console.log(newFormData);
-    newFormData.set("File", selectedFile);
-    newFormData.set("email", `${email}`);
-    newFormData.set("pw", `${password}`);
-    console.log(newFormData.getAll("email"));
-    console.log(newFormData.getAll("File"));
     const token = localStorage.getItem("token");
-    console.log(newFormData);
+    console.log(newFormData.getAll("file"));
+    console.log(newFormData.getAll("email"));
+    console.log(newFormData.getAll("password"));
     axios.post(`${process.env.REACT_APP_API_SERVER}/api/form`, newFormData, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -38,7 +33,7 @@ function FormPage() {
   return (
     <>
       <h3>Form page test</h3>
-      <form ref={form} onSubmit={handleFormSubmit}>
+      <form onSubmit={handleFormSubmit}>
         <label>Email: </label>
         <br />
         <input
