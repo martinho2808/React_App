@@ -3,6 +3,8 @@ import "./App.css";
 import Element from "./testElement";
 import SayHello from "./testComponent";
 import SayGoodbye from "./testClassComponent";
+import MaterialUI from "./material_ui_test";
+import MaterialUITheme from "./material_ui_theme";
 
 function App() {
   return (
@@ -30,7 +32,9 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header>{" "}
+      <MaterialUI />
+      <MaterialUITheme />
     </div>
   );
 }
