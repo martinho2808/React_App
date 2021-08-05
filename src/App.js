@@ -249,6 +249,7 @@ import ShoppingList from "./Components/ShoppingList.js";
 import Loops from "./Components/Loops";
 import ClockNoLCM from "./Components/ClockNoLCM.js";
 import Counter from "./Components/Counter";
+import CardApp from "./Components/CardApp";
 
 class App extends React.Component {
   render() {
@@ -286,6 +287,7 @@ class App extends React.Component {
         <ClockNoLCM />
         <Counter name="Tom" />
         <Counter name="William" />
+        <CardApp />
       </div>
     );
   }
