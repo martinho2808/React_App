@@ -5,10 +5,17 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css"; // this allows the css of bootstrap to be used throughout my whole application
 import AppExercise from "./AppExerciseDay53.js";
+import AppUE from "./AppUE";
 
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+//   document.getElementById("root")
+// );
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppUE />
   </React.StrictMode>,
   document.getElementById("root")
 );

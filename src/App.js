@@ -21,6 +21,8 @@ import WhoIsInSpace from "./Components/WhoIsInSpace.js";
 
 import Top from "./Components/useEffectEx.js";
 
+import BlogPostForm from "./Components/BlogPostForm";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -90,6 +92,7 @@ class App extends React.Component {
           </div>
         </div>
         <Top />
+        <BlogPostForm />
       </div>
     );
   }
