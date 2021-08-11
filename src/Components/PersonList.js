@@ -90,6 +90,8 @@ export const PersonList = connect(
   mapDispatchToProps
 )(PurePersonList);
 
+export default PersonList;
+
 // Hooks
 // import { useState } from "react";
 // import { useSelector, useDispatch } from "react-redux";

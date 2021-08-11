@@ -20,7 +20,6 @@ export function AddLink(link) {
 }
 
 export function DeleteLink(i) {
-  console.log(i);
   return {
     type: DELETE_LINK,
     payload: i,
@@ -49,12 +48,26 @@ export function loadLinkThunk() {
     return axios
       .get("https://www.reddit.com/r/programming.json")
       .then((response) => {
-        let threads = response.data;
-        let links = threads.data.children.map((link) => ({
-          title: link.data.title,
-          url: link.data.url,
-        }));
-        dispatch(loadLinkSuccessAction(links));
+        let links;
+        if (Array.isArray(response.data.data.children)) {
+          // Real implementation
+          let threads = response.data;
+          links = threads.data.children.map((link) => ({
+            title: link.data.title,
+            url: link.data.url,
+          }));
+          dispatch(loadLinkSuccessAction(links));
+        } else {
+          console.log("real here");
+          console.log("test here?");
+          let info = JSON.parse(response.request.response);
+          // Testing implementation
+          links = info.data.data.children.map((link) => ({
+            title: link.title,
+            url: link.url,
+          }));
+          dispatch(loadLinkSuccessAction(links));
+        }
       })
       .catch((error) => {
         console.log("FAILURE ", error);

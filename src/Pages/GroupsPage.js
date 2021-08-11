@@ -1,4 +1,4 @@
-export const GroupsPage = () => {
+const GroupsPage = () => {
   return (
     <>
       <h1>Welcome to the GroupsPage</h1>
@@ -6,3 +6,4 @@ export const GroupsPage = () => {
     </>
   );
 };
+export default GroupsPage;

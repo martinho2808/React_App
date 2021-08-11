@@ -52,25 +52,33 @@ class PureLinkList extends React.Component {
       <>
         {/* Code to add links dynamically */}
         <h3>Add Link</h3>
-
-        <input
-          type="text"
-          value={this.state.url}
-          name="url"
-          onChange={this.handleInputChange}
-        />
-        <br />
-        <input
-          type="text"
-          value={this.state.title}
-          name="title"
-          onChange={this.handleInputChange}
-        />
-        <br />
-        <button onClick={this.submitLink}>New Link</button>
+        <form>
+          <label>
+            <input
+              type="text"
+              value={this.state.url}
+              name="url"
+              onChange={this.handleInputChange}
+              id="url"
+              aria-label="url"
+            />
+          </label>
+          <br />
+          <label>
+            <input
+              type="text"
+              value={this.state.title}
+              name="title"
+              id="title"
+              onChange={this.handleInputChange}
+              aria-label="title"
+            />
+          </label>
+          <br />
+          <button onClick={this.submitLink}>New Link</button>
+        </form>
         <button onClick={this.props.clearLinkMDP}>Clear Links</button>
         <button onClick={this.props.loadLinkThunkMDP}>Load Links</button>
-
         {/* Code to display links from the Redux store */}
         <h3>Links:</h3>
         {this.props.links.map((link, i) => (
@@ -111,6 +119,8 @@ export const LinkList = connect(
   mapStateToProps,
   mapDispatchToProps
 )(PureLinkList);
+
+export default LinkList;
 
 // Hooks
 // import { useState } from "react";

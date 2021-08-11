@@ -6,11 +6,13 @@ import { Provider } from "react-redux";
 // Import your own reducer
 import { authReducer } from "../Redux/auth/reducers";
 import { userReducer } from "../Redux/user/reducers";
+import { linkReducer } from "../Redux/links/reducers";
 import thunk from "redux-thunk";
 
 const rootReducer = combineReducers({
   authStore: authReducer,
   userStore: userReducer,
+  linkStore: linkReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
