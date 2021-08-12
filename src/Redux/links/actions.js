@@ -58,8 +58,6 @@ export function loadLinkThunk() {
           }));
           dispatch(loadLinkSuccessAction(links));
         } else {
-          console.log("real here");
-          console.log("test here?");
           let info = JSON.parse(response.request.response);
           // Testing implementation
           links = info.data.data.children.map((link) => ({
