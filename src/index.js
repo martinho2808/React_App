@@ -6,10 +6,18 @@ import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css"; // this allows the css of bootstrap to be used throughout my whole application
 import App1 from "./App1";
 
+// const element = (
+//   <div>
+//     <h3 className="text-secondary">Hello Class</h3>
+//     <p className="text-danger">JSX</p>
+//   </div>
+// );
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
+  //   // element,
   document.getElementById("root")
 );
 

@@ -5,13 +5,19 @@ import "./App.css";
 
 // Base Functional Application, functional components are great for displaying data
 // function App() {
+//   // let logo = false;
 //   return (
 //     <div className="App">
 //       <header className="App-header">
 //         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
+//         <p className="text-danger">
 //           Edit <code>src/App.js</code> and save to reload.
 //         </p>
+//         {logo ? (
+//           <img src={logo} className="App-logo" alt="logo" />
+//         ) : (
+//           <h2>No Logo</h2>
+//         )}
 //         <a
 //           className="App-link"
 //           href="https://reactjs.org"

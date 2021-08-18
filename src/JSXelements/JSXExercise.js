@@ -10,10 +10,11 @@ export const JSXExercise = (
       React enabled.
       <ol>
         <li>
-          First, you need to use <span class="command">create-react-app</span>
+          First, you need to use{" "}
+          <span className="command">create-react-app</span>
         </li>
         <li>
-          Second, you need to run <span class="command">npm start</span>
+          Second, you need to run <span className="command">npm start</span>
         </li>
       </ol>
     </section>

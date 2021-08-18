@@ -3,6 +3,18 @@ import cricketPowder from "../assets/cricketPowder.jpg";
 import cricketPasta from "../assets/cricketPasta.jpg";
 import arrow from "../assets/arrow.png";
 
+let count = 0;
+
+function handleClick() {
+  console.log(count);
+  if (count > 4) {
+    alert("you clicked 5 times!");
+    count = 0;
+  } else {
+    count++;
+  }
+}
+
 export const JSXelement = (
   <div>
     <h1>Welcome to my react application</h1>
@@ -32,6 +44,7 @@ export const JSXelement = (
         }}
       />
       <img
+        onClick={handleClick}
         src={cricketPasta}
         alt="Cricket pasta"
         style={{ height: "400px", width: "400px" }}
