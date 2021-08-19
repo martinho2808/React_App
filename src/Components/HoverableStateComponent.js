@@ -11,11 +11,11 @@ export default class HoverableComponent extends React.Component {
   }
 
   // BAD IMPLEMENTATION:
-  /*
-        handleHover = () => {
-            this.state.hovered = this.state.hovered +1
-        }
-    */
+
+  // handleHover = () => {
+  //   this.state.hovered = this.state.hovered + 1;
+  //   console.log(this.state.hovered);
+  // };
 
   handleHover = () => {
     this.setState({

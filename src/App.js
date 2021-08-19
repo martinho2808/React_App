@@ -250,7 +250,7 @@ import Loops from "./Components/Loops";
 import ClockNoLCM from "./Components/ClockNoLCM.js";
 import Counter from "./Components/Counter";
 import CardApp from "./Components/CardApp";
-
+import Hello from "./Components/test";
 class App extends React.Component {
   render() {
     // To be passed as props - Loops
@@ -277,7 +277,8 @@ class App extends React.Component {
             Learn React
           </a>
         </header>
-        <Element age="99" name="Sam's World"></Element>
+        <Hello person="Tim" />
+        <Element age="99" name="John's World"></Element>
         <BootstrapElement buttonLabel="Click me" />
         <StatefulComponent />
         <HoverableComponent />
