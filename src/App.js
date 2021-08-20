@@ -29,6 +29,7 @@ class App extends React.Component {
 
     this.state = {
       clock: false,
+      input: "",
     };
   }
 
@@ -37,6 +38,13 @@ class App extends React.Component {
       clock: !this.state.clock,
     });
   };
+
+  updateInput(e) {
+    this.setState({
+      input: e.target.value,
+    });
+    console.log(this.state.input);
+  }
 
   render() {
     // To be passed as props - Loops
@@ -69,6 +77,14 @@ class App extends React.Component {
             Learn React
           </a>
         </header>
+
+        <input
+          type="text"
+          placeholder="no state."
+          value={this.state.input}
+          onChange={(e) => this.updateInput(e)}
+        />
+
         <Element age="99" name="Sam's World"></Element>
         {/* <BootstrapElement buttonLabel="Click me" /> */}
         <StatefulComponent />
@@ -79,7 +95,7 @@ class App extends React.Component {
         {this.state.clock ? <Clock /> : "No clock"}
         {/* <Loops array={array} /> */}
         {/* <ClockNoLCM /> */}
-        <APICall pokemon="pikachu" />
+        <APICall pokemon="ponyta" />
         <WhoIsInSpace />
         <Counter name="Tom" />
         <Counter name="William" />

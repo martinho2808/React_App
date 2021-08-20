@@ -13,6 +13,7 @@ export default function UseEffect2() {
 
   const [timers, setTimers] = useState([]);
   useEffect(() => {
+    console.log("re-render   useEffect");
     const newArray = [];
     for (let i = 0; i < numberOfTimers; i++) {
       newArray.push(<Timer key={i} />);

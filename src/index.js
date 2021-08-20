@@ -13,20 +13,22 @@ import AppUE from "./AppUE";
 //   </React.StrictMode>,
 //   document.getElementById("root")
 // );
-ReactDOM.render(
-  <React.StrictMode>
-    <AppUE />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
 
-// uncomment below and comment out above for exercises
+// use effect examples
 // ReactDOM.render(
 //   <React.StrictMode>
-//     <AppExercise />
+//     <AppUE />
 //   </React.StrictMode>,
 //   document.getElementById("root")
 // );
+
+// uncomment below and comment out above for exercises
+ReactDOM.render(
+  <React.StrictMode>
+    <AppExercise />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
 // code to implement the JSX element within the React application.
 
 // If you want to start measuring performance in your app, pass a function
