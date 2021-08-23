@@ -17,7 +17,7 @@ export default function App() {
   return (
     <>
       <div>
-        <Link style={LinkStyle} to="/">
+        <Link style={LinkStyle} to="/welcome">
           HomePage
         </Link>
         <Link style={LinkStyle} to="/LeaderBoard">
@@ -40,12 +40,24 @@ export default function App() {
 
       <div>
         <Switch>
-          <Route exact path="/" component={WelcomePage} />
+          <Route exact path="/">
+            <h3>Welcome</h3>
+          </Route>
+          <Route path="/welcome" component={WelcomePage} />
           <Route path="/LeaderBoard" component={LeaderBoardPage} />
           <Route path="/LifeCycleMethod" component={LifeCycleMethodPage} />
           <Route path="/Questioner" component={QuestionerPage} />
           <Route path="/FormComponent" component={FormComponentPage} />
           <Route path="/Timer" component={TimerPage} />
+          <Route
+            component={() => {
+              return (
+                <div>
+                  <h1 className="text-danger">Error</h1>
+                </div>
+              );
+            }}
+          />
         </Switch>
       </div>
     </>
