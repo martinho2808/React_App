@@ -19,16 +19,16 @@ import { BrowserRouter as Router } from "react-router-dom";
 // );
 
 // Uncomment below block and comment out above for day54.
-ReactDOM.render(
-  <Router>
-    <AppExercise54 />
-  </Router>,
-  document.getElementById("root")
-);
+// ReactDOM.render(
+//   <Router>
+//     <AppExercise54 />
+//   </Router>,
+//   document.getElementById("root")
+// );
 
 // Uncomment below block and comment out above for Covid Day 54 - the backend is in a separate repo
 // BACKEND LINK EXAMPLE:
-// ReactDOM.render(<AppCovid />, document.getElementById("root"));
+ReactDOM.render(<AppCovid />, document.getElementById("root"));
 
 // uncomment below and comment out above for exercises
 // ReactDOM.render(
