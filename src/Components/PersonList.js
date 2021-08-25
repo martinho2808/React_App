@@ -29,7 +29,7 @@ class PurePersonList extends React.Component {
       name: this.state.person,
       age: this.state.age,
     };
-    this.props.addPerson(person);
+    this.props.sendPersonMDP(person);
     this.setState({
       person: "Update the Persons Name and Age",
       age: 0,
@@ -75,7 +75,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addPerson: (person) => {
+    sendPersonMDP: (person) => {
       dispatch(AddPerson(person));
     },
   };
