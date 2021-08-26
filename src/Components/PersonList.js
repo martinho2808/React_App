@@ -1,6 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { AddPerson, loadSpacePeopleThunk } from "../Redux/people/actions";
+import {
+  AddPerson,
+  loadSpacePeopleThunk,
+  ClearPeople,
+} from "../Redux/people/actions";
 
 class PurePersonList extends React.Component {
   constructor(props) {
@@ -36,6 +40,10 @@ class PurePersonList extends React.Component {
     });
   };
 
+  componentDidUpdate() {
+    localStorage.setItem("People", JSON.stringify(this.props.people));
+  }
+
   render() {
     return (
       <>
@@ -63,6 +71,9 @@ class PurePersonList extends React.Component {
         <br />
         <button onClick={this.handleSubmit}>Add Person</button>
         <button onClick={() => this.props.spacePeople()}>SpacePeople</button>
+        <button onClick={() => this.props.clearPeopleMDP()}>
+          ClearAllPeople
+        </button>
       </>
     );
   }
@@ -81,6 +92,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     spacePeople: () => {
       dispatch(loadSpacePeopleThunk());
+    },
+    clearPeopleMDP: () => {
+      dispatch(ClearPeople());
     },
   };
 };

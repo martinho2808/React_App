@@ -45,10 +45,12 @@ export function loadLinkFailureAction() {
 // Thunk Action called in component
 
 export function loadLinkThunk() {
+  console.log("thunk action api call");
   return (dispatch) => {
     return axios
       .get("https://www.reddit.com/r/programming.json")
       .then((response) => {
+        console.log("after api call");
         let threads = response.data;
         let links = threads.data.children.map((link) => ({
           title: link.data.title,

@@ -4,7 +4,26 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./Redux/store";
 import { Provider } from "react-redux";
+import { LOAD_LINK_SUCCESS_ACTION } from "./Redux/links/actions";
 
+// Fastest way of doing things, not necessarily the conventional way , dispatch an action to the store before components are meant to mount
+
+// import axios from "axios";
+// axios.get("https://www.reddit.com/r/programming.json").then((response) => {
+//   let threads = response.data;
+
+//   let redditLinks = threads.data.children.map((link) => ({
+//     title: link.data.title,
+//     url: link.data.url,
+//   }));
+
+//   console.log(redditLinks);
+
+//   store.dispatch({
+//     type: LOAD_LINK_SUCCESS_ACTION,
+//     payload: redditLinks,
+//   });
+// });
 ReactDOM.render(
   <Provider store={store}>
     <App />

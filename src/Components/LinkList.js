@@ -5,7 +5,11 @@ import {
   AddLink,
   DeleteLink,
   loadLinkThunk,
+  LOAD_LINK_SUCCESS_ACTION,
 } from "../Redux/links/actions";
+import axios from "axios";
+
+import { store } from "../Redux/store";
 
 class PureLinkList extends React.Component {
   constructor(props) {
@@ -47,6 +51,22 @@ class PureLinkList extends React.Component {
     }
   };
 
+  componentDidMount() {
+    // More conventional way
+    axios.get("https://www.reddit.com/r/programming.json").then((response) => {
+      let threads = response.data;
+      let redditLinks = threads.data.children.map((link) => ({
+        title: link.data.title,
+        url: link.data.url,
+      }));
+      console.log(redditLinks);
+      store.dispatch({
+        type: LOAD_LINK_SUCCESS_ACTION,
+        payload: redditLinks,
+      });
+    });
+  }
+
   render() {
     return (
       <>
@@ -73,15 +93,25 @@ class PureLinkList extends React.Component {
 
         {/* Code to display links from the Redux store */}
         <h3>Links:</h3>
-        {this.props.links.map((link, i) => (
+        {/* {this.props.links.map((link, i) => (
           <div key={i}>
             {link.title} - {link.url}
-            {/* Button to delete te link */}
             <button onClick={() => this.props.deleteLinkMDP(i)}>
               Delete Link
             </button>
           </div>
-        ))}
+        ))} */}
+
+        {this.props.loading
+          ? "Loading...."
+          : this.props.links.map((link, i) => (
+              <div key={i}>
+                {link.title} - {link.url}
+                <button onClick={() => this.props.deleteLinkMDP(i)}>
+                  Delete Link
+                </button>
+              </div>
+            ))}
       </>
     );
   }
@@ -90,6 +120,7 @@ class PureLinkList extends React.Component {
 const mapStateToProps = (state) => {
   return {
     links: state.linkStore.links,
+    loading: state.linkStore.loading,
   };
 };
 
