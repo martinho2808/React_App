@@ -19,6 +19,25 @@ function loginFailureActionCreator(message) {
   };
 }
 
+export const signupThunk = (email, password, name) => async (dispatch) => {
+  try {
+    const response = await axios.post(
+      `${process.env.REACT_APP_API_SERVER}/api/signup`,
+      {
+        email: email,
+        password: password,
+        name: name,
+      }
+    );
+
+    const { data } = response;
+    console.log("request sent");
+    console.log(data);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 // Action creators thunk
 export const loginUserThunk = (email, password) => async (dispatch) => {
   try {
