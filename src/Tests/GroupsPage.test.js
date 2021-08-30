@@ -2,7 +2,7 @@ import React from "react";
 
 import renderer from "react-test-renderer";
 
-import { GroupsPage } from "../Pages/GroupsPage";
+import GroupsPage from "../Pages/GroupsPage";
 
 describe("<GroupsPage />", () => {
   it("renders complete snapshot", () => {
