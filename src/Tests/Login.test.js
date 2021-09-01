@@ -43,6 +43,7 @@ describe("<Login />", () => {
     let result = await screen.findByText(/work/i);
     expect(result).toHaveTextContent(/login/i);
   });
+
   it("handles server error", async () => {
     server.use(
       rest.post(
