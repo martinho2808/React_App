@@ -12,9 +12,9 @@ export default class QuestionerPage extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="pageContainer">
         <Questioner question="What is your favourite food?" />
-      </>
+      </div>
     );
   }
 }

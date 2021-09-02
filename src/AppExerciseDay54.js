@@ -15,24 +15,24 @@ export default function App() {
     color: "#000000",
   };
   return (
-    <>
+    <div className="body">
       <div>
-        <Link style={LinkStyle} to="/">
+        <Link className="linkStyle" to="/">
           HomePage
         </Link>
-        <Link style={LinkStyle} to="/LeaderBoard">
+        <Link className="linkStyle" to="/LeaderBoard">
           LeaderBoard
         </Link>
-        <Link style={LinkStyle} to="LifeCycleMethod">
+        <Link className="linkStyle" to="LifeCycleMethod">
           LifeCycleMethod
         </Link>
-        <Link style={LinkStyle} to="Questioner">
+        <Link className="linkStyle" to="Questioner">
           Questioner
         </Link>
-        <Link style={LinkStyle} to="FormComponent">
+        <Link className="linkStyle" to="FormComponent">
           Forms
         </Link>
-        <Link style={LinkStyle} to="Timer">
+        <Link className="linkStyle" to="Timer">
           Timer
         </Link>
         <GoBack />
@@ -48,6 +48,6 @@ export default function App() {
           <Route path="/Timer" component={TimerPage} />
         </Switch>
       </div>
-    </>
+    </div>
   );
 }

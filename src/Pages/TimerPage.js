@@ -29,7 +29,7 @@ export default class TimerPage extends React.Component {
     }
 
     return (
-      <div>
+      <div className="pageContainer">
         <h1> Create some timers by clicking on Add Timer the button below</h1>
         <button className="btn btn-primary" onClick={this.onAddTimer}>
           Add Timer

@@ -1,0 +1,51 @@
+// un comment at start, and comment again after showing partials
+$primaryBackground: #000000;
+$secondaryBackground: #36494e;
+$tertiaryBackground: #597081;
+$primaryText: #7ea0b7;
+$secondaryText: #a9cef4;
+$tertiaryText: #df52bc;
+
+// @import "./partials";
+
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.linkStyle {
+  margin: 20px;
+  font-weight: bold;
+  color: $secondaryText;
+}
+
+.body {
+  background-color: $tertiaryBackground;
+  height: 100vh;
+}
+
+.pageContainer {
+  background-color: $primaryBackground;
+  color: $primaryText;
+  text-align: center;
+  h1 {
+    color: #ff0000bb;
+  }
+  h3 {
+    color: $tertiaryText;
+  }
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+  background-color: #462fd8;
+  margin: 20px;
+}
+
+.boxContainer {
+  @extend %flex-center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}

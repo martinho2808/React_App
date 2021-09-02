@@ -18,11 +18,11 @@ export default class LifeCycleMethodPage extends React.Component {
   };
   render() {
     return (
-      <>
+      <div className="pageContainer">
         <button onClick={this.getClock}>GetClock</button>
         {this.state.clock ? <Clock /> : "No clock"}
         <WhoIsInSpace />
-      </>
+      </div>
     );
   }
 }

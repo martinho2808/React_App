@@ -10,10 +10,10 @@ export default class FormComponentPage extends React.Component {
       { item: "Mayonnaise" },
     ];
     return (
-      <>
+      <div className="pageContainer">
         <ShoppingList list={shopping} name={"Jeremy"} />
         <CurrencyConverter />
-      </>
+      </div>
     );
   }
 }
