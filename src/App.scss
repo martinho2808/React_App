@@ -1,18 +1,18 @@
 // un comment at start, and comment again after showing partials
-$primaryBackground: #000000;
-$secondaryBackground: #36494e;
-$tertiaryBackground: #597081;
-$primaryText: #7ea0b7;
-$secondaryText: #a9cef4;
-$tertiaryText: #df52bc;
+// $primaryBackground: #000000;
+// $secondaryBackground: #36494e;
+// $tertiaryBackground: #597081;
+// $primaryText: #7ea0b7;
+// $secondaryText: #a9cef4;
+// $tertiaryText: #df52bc;
 
-// @import "./partials";
+@import "./partials";
 
-%flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+// %flex-center {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
 
 .linkStyle {
   margin: 20px;
@@ -47,5 +47,5 @@ $tertiaryText: #df52bc;
 .boxContainer {
   @extend %flex-center;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
 }

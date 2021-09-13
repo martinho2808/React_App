@@ -5,6 +5,7 @@ import QuestionerPage from "./Pages/QuestionerPage";
 import WelcomePage from "./Pages/WelcomePage";
 import TimerPage from "./Pages/TimerPage";
 import GoBack from "./Components/GoBack";
+import "./App.scss";
 
 import { Route, Switch, Link } from "react-router-dom";
 

@@ -4,3 +4,8 @@ $tertiaryBackground: #597081;
 $primaryText: #7ea0b7;
 $secondaryText: #a9cef4;
 $tertiaryText: #df52bc;
+%flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
