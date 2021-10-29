@@ -17,11 +17,11 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  //   // element,
+  //element,
   document.getElementById("root")
 );
 
-// un comment below for JSX elements
+// // un comment below for JSX elements
 // ReactDOM.render(
 //   <React.StrictMode>
 //     <App1 />

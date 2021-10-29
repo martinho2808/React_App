@@ -19,7 +19,7 @@ class BootstrapElement extends React.Component {
   render() {
     return (
       <div>
-        <button className="btn btn-danger" onClick={this.toggle}>
+        <button className="btn btn-warning" onClick={this.toggle}>
           {this.props.buttonLabel}
         </button>
         <Modal

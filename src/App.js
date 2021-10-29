@@ -3,6 +3,25 @@ import "./App.css";
 
 // uncomment blocks below to see React usage
 
+// element
+// let data = (
+//   <div>
+//     <h1>I am a Element<h1>
+//   </div>
+// );
+
+// Component
+// function Element () {
+//   return (
+//      <div>
+//     <h3 className="text-secondary">Hello Class</h3>
+//     <p className="text-danger">JSX</p>
+//   </div>
+//   )
+// }
+ 
+
+
 // Base Functional Application, functional components are great for displaying data
 // function App() {
 //   // let logo = false;
@@ -13,11 +32,12 @@ import "./App.css";
 //         <p className="text-danger">
 //           Edit <code>src/App.js</code> and save to reload.
 //         </p>
-//         {logo ? (
+//         <Element ></Element>
+//         {/* {logo ? (
 //           <img src={logo} className="App-logo" alt="logo" />
 //         ) : (
 //           <h2>No Logo</h2>
-//         )}
+//         )} */}
 //         <a
 //           className="App-link"
 //           href="https://reactjs.org"
@@ -255,6 +275,10 @@ import StatefulComponent from "./StatefulComponent.js";
 
 import { Button } from "reactstrap";
 
+import {FunctionalComponent} from "./components/FunctionalComponent.jsx"
+import Counter from "./components/Counter.jsx"
+
+
 class App extends React.Component {
   render() {
     return (
@@ -277,6 +301,9 @@ class App extends React.Component {
         <BootstrapElement buttonLabel="Click me" />
         <StatefulComponent />
         <Button color="danger">ReactStrap Button</Button>
+        <h1>Antoher header </h1>
+        <FunctionalComponent />
+        <Counter name='Bibek' />
       </div>
     );
   }
