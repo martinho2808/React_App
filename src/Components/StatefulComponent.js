@@ -4,10 +4,10 @@ class StatefulComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cohort: 13,
-      students: 12,
-      instructors: ["Sam", "Lesley", "Alex"],
-      currentAddress: "New Mandarin Plaza, TST East",
+      cohort: 16,
+      students: 3,
+      instructors: ["Sam", "Bibek"],
+      currentAddress: "Cocoon Tin Hau",
     };
   }
 

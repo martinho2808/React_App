@@ -30,6 +30,7 @@ export default class HoverableComponent extends React.Component {
           <h3>Hoverable Image</h3>
           <img
             onMouseEnter={this.handleHover}
+            onMouseLeave={this.handleHover}
             src={hongKongImage}
             alt="interesting colonial hong kong"
           />

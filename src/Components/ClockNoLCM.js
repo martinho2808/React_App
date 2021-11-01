@@ -20,36 +20,36 @@ export default class Clock extends React.Component {
       ampm,
     };
 
-    this.updateClock = this.updateClock.bind(this);
+    // this.updateClock = this.updateClock.bind(this);
   }
 
-  updateClock() {
-    const currentTime = new Date();
-    let hours = currentTime.getHours();
-    let minutes = currentTime.getMinutes();
-    let seconds = currentTime.getSeconds();
-    let ampm = hours >= 12 ? "PM" : "AM";
+  // updateClock() {
+  //   const currentTime = new Date();
+  //   let hours = currentTime.getHours();
+  //   let minutes = currentTime.getMinutes();
+  //   let seconds = currentTime.getSeconds();
+  //   let ampm = hours >= 12 ? "PM" : "AM";
 
-    this.setState({
-      currentTime,
-      hours,
-      minutes,
-      seconds,
-      ampm,
-    });
-  }
+  //   this.setState({
+  //     currentTime,
+  //     hours,
+  //     minutes,
+  //     seconds,
+  //     ampm,
+  //   });
+  // }
 
-  componentWillUnmount() {
-    clearInterval(this.updateClock);
-  }
+  // componentWillUnmount() {
+  //   clearInterval(this.updateClock);
+  // }
 
-  start() {
-    setInterval(this.updateClock, 1000);
-  }
+  // start() {
+  //   setInterval(this.updateClock, 1000);
+  // }
 
   render() {
     const { hours, minutes, seconds, ampm } = this.state;
-    this.start();
+    // this.start();
     return (
       <>
         {hours === 0 ? 12 : hours > 12 ? hours - 12 : hours}:{" "}

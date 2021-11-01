@@ -266,7 +266,7 @@ class App extends React.Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            Edit <code>src/App.js</code> and save to reload. Hello world
           </p>
           <a
             className="btn btn-primary" // Added bootstrap with yarn add bootstrap, altered index.js
@@ -277,17 +277,17 @@ class App extends React.Component {
             Learn React
           </a>
         </header>
-        <Hello person="Tim" />
-        <Element age="99" name="John's World"></Element>
+        <Hello person="Hayley" />
+        <Element age="99" name="Sam world"></Element>
         <BootstrapElement buttonLabel="Click me" />
         <StatefulComponent />
         <HoverableComponent />
-        <ShoppingList name="Lesley" />
+        <ShoppingList name="Sherman" />
         <Loops />
         {/* <Loops array={array} /> */}
         <ClockNoLCM />
-        <Counter name="Tom" />
-        <Counter name="William" />
+        <Counter name="Bibek" />
+        <Counter name="Siddarth" />
         <CardApp />
       </div>
     );
