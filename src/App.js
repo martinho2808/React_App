@@ -22,6 +22,9 @@ import WhoIsInSpace from "./Components/WhoIsInSpace.js";
 import Top from "./Components/useEffectEx.js";
 
 import BlogPostForm from "./Components/BlogPostForm";
+import BlogFormHooks from "./Components/BlogPostHooks";
+
+import TodoList from "./Components/Todo.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -60,6 +63,13 @@ class App extends React.Component {
       { item: "Bacon" },
       { item: "Mayonnaise" },
     ];
+    const todos = [
+      { label: "Write tests", status: "done" },
+      { label: "Sent report", status: "progress" },
+      { label: "Answer emails", status: "done" },
+    ];
+
+    var isCompleted = (todo) => todo.status === "done";
 
     return (
       <div className="App">
@@ -95,7 +105,7 @@ class App extends React.Component {
         {this.state.clock ? <Clock /> : "No clock"}
         {/* <Loops array={array} /> */}
         {/* <ClockNoLCM /> */}
-        <APICall pokemon="ponyta" />
+        <APICall pokemon="geodude" />
         <WhoIsInSpace />
         <Counter name="Tom" />
         <Counter name="William" />
@@ -109,6 +119,16 @@ class App extends React.Component {
         </div>
         <Top />
         <BlogPostForm />
+        <BlogFormHooks />
+        <TodoList todos={todos}>
+          {(todo) =>
+            isCompleted(todo) ? (
+              <b style={{ color: "green" }}>{todo.label}</b>
+            ) : (
+              todo.label
+            )
+          }
+        </TodoList>
       </div>
     );
   }

@@ -9,7 +9,7 @@ export default class App extends React.Component {
     return (
       <>
         <UseEffect1 />
-        <Timer />
+        {/* <Timer /> */}
         <UseEffect2 />
         <UseEffect3 />
       </>

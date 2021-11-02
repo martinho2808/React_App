@@ -11,12 +11,7 @@ export default function UseEffectData() {
 
   const [kanye, setKanye] = useState("");
   useEffect(() => {
-    fetch("https://api.kanye.rest/")
-      .then((response) => response.json())
-      .then((parsedResponse) => {
-        console.log(parsedResponse);
-        setKanye(parsedResponse.quote);
-      });
+    getQuote();
   }, []);
   return (
     <div>
