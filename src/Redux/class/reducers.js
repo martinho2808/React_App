@@ -12,6 +12,7 @@ export function studentReducer(state = initialState, action) {
       };
     case DELETE_STUDENT:
       console.log(action.payload, " <<<<<< action");
+      // splice a new copy of the array
 
       return {
         students: state.students.filter(

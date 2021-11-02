@@ -1,63 +1,110 @@
-import React from "react";
-import { connect } from "react-redux";
+// import React from "react";
+// import { connect } from "react-redux";
+// import { AddStudent, DeleteStudent } from "../Redux/class/actions";
+
+// class PureClassList extends React.Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.state = {
+//       student: "Insert Student name here",
+//     };
+//   }
+
+//   handleChange(e) {
+//     this.setState({
+//       student: e.currentTarget.value,
+//     });
+//   }
+
+//   render() {
+//     console.log(this.props.class);
+//     return (
+//       <>
+//         <input
+//           type="text"
+//           value={this.state.student}
+//           onChange={(e) => this.handleChange(e)}
+//         />
+//         <br />
+//         <button onClick={() => this.props.addStudentMDP(this.state.student)}>
+//           Add Student
+//         </button>
+//         <h3>Class:</h3>
+//         {this.props.class.map((student, i) => (
+//           <div key={i}>
+//             <div>{student}</div>{" "}
+//             <button onClick={() => this.props.deleteStudentMDP(student)}>
+//               Delete student
+//             </button>
+//           </div>
+//         ))}
+//       </>
+//     );
+//   }
+// }
+
+// const mapStateToProps = (state) => {
+//   return {
+//     class: state.studentStore.students,
+//   };
+// };
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     addStudentMDP: (student) => dispatch(AddStudent(student)),
+//     deleteStudentMDP: (index) => dispatch(DeleteStudent(index)),
+//   };
+// };
+
+// export const ClassList = connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(PureClassList);
+
+import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { AddStudent, DeleteStudent } from "../Redux/class/actions";
 
-class PureClassList extends React.Component {
-  constructor(props) {
-    super(props);
+export const ClassList = (props) => {
+  const [student, setStudent] = useState("");
+  const studentsFromRedux = useSelector((state) => state.studentStore.students);
 
-    this.state = {
-      student: "Insert Student name here",
-    };
-  }
+  const dispatch = useDispatch();
 
-  handleChange(e) {
-    this.setState({
-      student: e.currentTarget.value,
-    });
-  }
+  return (
+    <div>
+      <label>Student</label>
+      <br />
+      <input
+        type="text"
+        value={student}
+        placeholder="Insert Student Name"
+        onChange={(e) => setStudent(e.target.value)}
+      />
+      <br />
+      <button
+        onClick={() => {
+          dispatch(AddStudent(student));
+          setStudent("");
+        }}
+      >
+        Add Student
+      </button>
 
-  render() {
-    console.log(this.props.class);
-    return (
-      <>
-        <input
-          type="text"
-          value={this.state.student}
-          onChange={(e) => this.handleChange(e)}
-        />
-        <br />
-        <button onClick={() => this.props.addStudentMDP(this.state.student)}>
-          Add Student
-        </button>
-        <h3>Class:</h3>
-        {this.props.class.map((student, i) => (
-          <div key={i}>
-            <div>{student}</div>{" "}
-            <button onClick={() => this.props.deleteStudentMDP(student)}>
-              Delete student
-            </button>
-          </div>
-        ))}
-      </>
-    );
-  }
-}
+      <br />
 
-const mapStateToProps = (state) => {
-  return {
-    class: state.studentStore.students,
-  };
+      <h2> Students </h2>
+      {studentsFromRedux && studentsFromRedux.length > 0
+        ? studentsFromRedux.map((student, i) => (
+            <div key={i}>
+              <p>{student}</p>
+              <button onClick={() => dispatch(DeleteStudent(i))}>
+                Delete me!
+              </button>
+            </div>
+          ))
+        : null}
+    </div>
+  );
 };
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addStudentMDP: (student) => dispatch(AddStudent(student)),
-    deleteStudentMDP: (index) => dispatch(DeleteStudent(index)),
-  };
-};
-
-export const ClassList = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PureClassList);

@@ -11,9 +11,9 @@ export function AddStudent(student) {
 
 export const DELETE_STUDENT = "DELETE_STUDENT";
 
-export function DeleteStudent(name) {
+export function DeleteStudent(index) {
   return {
     type: DELETE_STUDENT,
-    payload: name,
+    payload: index,
   };
 }
