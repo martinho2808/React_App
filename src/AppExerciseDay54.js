@@ -41,7 +41,7 @@ export default function App() {
       <div>
         <Switch>
           <Route exact path="/">
-            <h3>Welcome</h3>
+            <h3>Welcome no component </h3>
           </Route>
           <Route path="/welcome" component={WelcomePage} />
           <Route path="/LeaderBoard" component={LeaderBoardPage} />
