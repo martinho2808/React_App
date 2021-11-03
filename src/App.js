@@ -36,11 +36,11 @@ function App() {
       </div>
       {/* Not Displayed on the screen */}
 
-      <Switch>
-        <Route path="/home" component={Home} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/" component={Welcome} />
-      </Switch>
+      {/* <Switch> */}
+      <Route exact path="/" component={Welcome} />
+      <Route path="/home" component={Home} />
+      <Route path="/profile" component={Profile} />
+      {/* </Switch> */}
     </div>
   );
 }
