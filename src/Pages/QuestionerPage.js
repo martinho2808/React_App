@@ -1,20 +1,37 @@
-import React from "react";
+// import React from "react";
 import Questioner from "../Components/Exercise/Questioner.js";
 
-export default class QuestionerPage extends React.Component {
-  constructor(props) {
-    super(props);
+// export default class QuestionerPage extends React.Component {
+//   constructor(props) {
+//     super(props);
 
-    this.state = {
-      answer: "",
-    };
+//     this.state = {
+//       answer: "",
+//     };
+//   }
+
+//   render() {
+//     return (
+//       <>
+//         <Questioner question="What is your favourite food?" />
+//       </>
+//     );
+//   }
+// }
+
+import { useState } from "react";
+
+export default function QuestionerPage (props) {
+  const [answer, setAnswer] = useState("");
+
+  function question() {
+    setAnswer(prompt("What is your name?"));
   }
 
-  render() {
-    return (
-      <>
-        <Questioner question="What is your favourite food?" />
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Questioner questionFunc={question} />
+      <p>{answer}</p>
+    </>
+  );
+};

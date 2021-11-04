@@ -1,41 +1,41 @@
 // Exercise A - class based
 
-import React from "react";
+// import React from "react";
 
-export default class Questioner extends React.Component {
-  constructor(props) {
-    super(props);
+// export default class Questioner extends React.Component {
+//   constructor(props) {
+//     super(props);
 
-    this.state = {
-      answer: "",
-    };
-  }
+//     this.state = {
+//       answer: "",
+//     };
+//   }
 
-  query = () => {
-    const userInput = prompt(this.props.question);
-    if (userInput === null) {
-      this.setState({
-        answer: "Click again and input an answer please.",
-      });
-    } else {
-      this.setState({
-        answer: userInput,
-      });
-    }
-    return true;
-  };
+//   query = () => {
+//     const userInput = prompt(this.props.question);
+//     if (userInput === null) {
+//       this.setState({
+//         answer: "Click again and input an answer please.",
+//       });
+//     } else {
+//       this.setState({
+//         answer: userInput,
+//       });
+//     }
+//     return true;
+//   };
 
-  render() {
-    return (
-      <>
-        <button className="btn btn-primary" onClick={this.query}>
-          Questioner
-        </button>
-        <p>{this.state.answer}</p>
-      </>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <>
+//         <button className="btn btn-primary" onClick={this.query}>
+//           Questioner
+//         </button>
+//         <p>{this.state.answer}</p>
+//       </>
+//     );
+//   }
+// }
 
 // Exercise A Hooks example
 
@@ -60,3 +60,11 @@ export default class Questioner extends React.Component {
 //         </>
 //     )
 // }
+
+export default function Questioner(props) {
+  return (
+    <>
+      <button onClick={props.questionFunc}>Click me for a question! </button>
+    </>
+  );
+}
