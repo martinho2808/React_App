@@ -112,11 +112,12 @@ export function PictureList() {
   const [title, setTitle] = useState("Insert Title Here");
   const [searched, setSearched] = useState("Insert Search Here");
   const dispatch = useDispatch();
-  const storedImagesRedux = useSelector((state) => state.ImageStore.images);
+  const storedImagesRedux = useSelector((state) => state.imageStore.images);
 
   function submitSearch(e) {
     e.preventDefault();
     const image = {
+      title,
       searched,
     };
     dispatch(getImageThunk(image));
@@ -152,7 +153,7 @@ export function PictureList() {
                   <h3>{image.title}</h3>
                   <img
                     style={{ width: "30%", height: "30%" }}
-                    srl={image.url}
+                    src={image.url}
                     alt={image.title}
                   />
                   <br />

@@ -12,7 +12,13 @@ export const LOAD_LINK_FAILURE_ACTION = "LOAD_LINK_FAILURE_ACTION";
 
 // Action Creators
 
+export function ClearLinks() {
+  return {
+    type: CLEAR_LINKS,
+  };
+}
 export function AddLink(link) {
+  // action
   return {
     type: ADD_LINK,
     payload: link,

@@ -146,7 +146,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  CLEAR_LINKS,
+  ClearLinks,
   AddLink,
   DeleteLink,
   loadLinkThunk,
@@ -185,7 +185,7 @@ export const LinkList = (props) => {
     setTitle("Insert Title here");
   };
 
-  const clearLink = () => dispatch({ type: CLEAR_LINKS });
+  const clearLink = () => dispatch(ClearLinks());
   const deleteLink = (i) => {
     console.log(i);
     dispatch(DeleteLink(i));

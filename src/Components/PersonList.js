@@ -104,9 +104,14 @@
 //   mapDispatchToProps
 // )(PurePersonList);
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { AddPerson, loadSpacePeopleThunk } from "../Redux/people/actions";
+import {
+  AddPerson,
+  loadSpacePeopleThunk,
+  ClearPeople,
+  loadPersonThunk,
+} from "../Redux/people/actions";
 
 export const PersonList = (props) => {
   const [person, setPerson] = useState("Insert Persons Name and Age");
@@ -115,6 +120,10 @@ export const PersonList = (props) => {
   const peopleFromRedux = useSelector((state) => state.peopleStore.people);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    localStorage.setItem("People", JSON.stringify(peopleFromRedux));
+  }, [peopleFromRedux]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -155,6 +164,10 @@ export const PersonList = (props) => {
       </button>
       <button onClick={() => dispatch(loadSpacePeopleThunk())}>
         SpacePeople
+      </button>
+      <button onClick={() => dispatch(ClearPeople())}>Clear People</button>
+      <button onClick={() => dispatch(loadPersonThunk())}>
+        New dude or dudette
       </button>
     </>
   );

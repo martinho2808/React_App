@@ -38,6 +38,12 @@ export function spacePeopleFailureAction() {
   };
 }
 
+export function NewUser(user) {
+  return {
+    type: ADD_PERSON,
+    payload: user,
+  };
+}
 // Thunk action called in component
 export function loadSpacePeopleThunk() {
   console.log("Thunk fired!");
@@ -59,5 +65,21 @@ export function loadSpacePeopleThunk() {
         console.log("Failure", error);
         dispatch(spacePeopleFailureAction());
       });
+  };
+}
+
+export function loadPersonThunk() {
+  return (dispatch) => {
+    return axios.get("https://randomuser.me/api/").then((response) => {
+      console.log(response);
+      const user = {
+        name:
+          response.data.results[0].name.first +
+          " " +
+          response.data.results[0].name.last,
+        age: response.data.results[0].dob.age,
+      };
+      dispatch(NewUser(user));
+    });
   };
 }
