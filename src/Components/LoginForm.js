@@ -85,6 +85,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { loginUserThunk } from "../Redux/auth/actions";
+import { useHistory } from "react-router";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -93,12 +94,13 @@ const Login = (props) => {
     (state) => state.authStore.isAuthenticated
   );
   const dispatch = useDispatch();
+  const history = useHistory();
 
-  useEffect(() => {
-    if (isAuthenticated === true) {
-      props.history.push("/users");
-    }
-  }, [isAuthenticated]);
+  // useEffect(() => {
+  //   if (isAuthenticated === true) {
+  //     history.push("/users");
+  //   }
+  // }, []);
 
   const login = () => {
     dispatch(loginUserThunk(email, password));

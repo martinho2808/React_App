@@ -42,11 +42,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { getUser } from "../Redux/user/actions";
 
 const UsersPage = () => {
-  const { users } = useSelector((state) => state.userStore.user);
+  const users = useSelector((state) => state.userStore.user);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUser());
-  }, []);
+  }, [dispatch]);
+  console.log(users);
   return (
     <div>
       <h1>Welcome to the user page</h1>

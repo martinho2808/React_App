@@ -1,4 +1,4 @@
-import LinkList from "../Components/LinkList";
+import { LinkList } from "../Components/LinkList";
 export default function LinksPage() {
   return (
     <>

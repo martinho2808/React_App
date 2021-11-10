@@ -7,17 +7,17 @@ import {
 } from "react-router-dom";
 import { connect } from "react-redux";
 
-import Navbar from "reactstrap/lib/Navbar";
-import NavItem from "reactstrap/lib/NavItem";
+import { Navbar } from "reactstrap";
+import { NavItem } from "reactstrap";
 
 import LoginPage from "./Pages/LoginPage";
 import LinksPage from "./Pages/LinksPage";
 import PeoplePage from "./Pages/PeoplePage";
 import UsersPage from "./Pages/UsersPage";
-import GroupsPage from "./Pages/GroupsPage";
+import { GroupsPage } from "./Pages/GroupsPage";
 import { logoutNowThunk } from "./Redux/auth/actions";
 
-const PrivateRoute = ({ component, isAuthenticated, ...rest }) => {
+const PurePrivateRoute = ({ component, isAuthenticated, ...rest }) => {
   const Component = component;
   if (Component != null) {
     return (
@@ -38,6 +38,17 @@ const PrivateRoute = ({ component, isAuthenticated, ...rest }) => {
     return null;
   }
 };
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: state.authStore.isAuthenticated,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logOutMDP: () => dispatch(logoutNowThunk()),
+  };
+};
+const PrivateRoute = connect(mapStateToProps)(PurePrivateRoute);
 
 class App extends React.Component {
   render() {
@@ -74,10 +85,4 @@ class App extends React.Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    logOutMDP: () => dispatch(logoutNowThunk()),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
