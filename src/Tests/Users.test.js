@@ -68,7 +68,6 @@ describe("<UsersPage />", () => {
     );
     expect(screen.queryByText(/ftwd/i)).toBeFalsy();
     await waitFor(() => screen.getAllByText(/ftwd/i));
-    console.log(screen, "<<<<<<<< screen");
     expect(screen.getAllByText(/ftwd/i).length).toEqual(2);
   });
 });
