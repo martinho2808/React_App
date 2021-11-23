@@ -151,7 +151,7 @@ export default function GetSpaceMan(props) {
 
   useEffect(() => {
     // Component Did Mount
-    fetch(`http://api.open-notify.org/astros.json`)
+    fetch(`https://api.open-notify.org/astros.json`)
       .then((res) => res.json())
       .then(
         (result) => {
