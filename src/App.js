@@ -7,8 +7,7 @@ import {
 } from "react-router-dom";
 import { connect } from "react-redux";
 
-import Navbar from "reactstrap/lib/Navbar";
-import NavItem from "reactstrap/lib/NavItem";
+import {Navbar, NavItem, Container } from "react-bootstrap";
 
 import LoginPage from "./Pages/LoginPage";
 import LinksPage from "./Pages/LinksPage";
@@ -51,7 +50,8 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          <Navbar dark={true}>
+          <Navbar  bg='dark'>
+            <Container>
             <NavItem>
               <Link to="/users">Users</Link>
             </NavItem>
@@ -70,9 +70,11 @@ class App extends React.Component {
             <NavItem>
               <Link to="/signup">Signup</Link>
             </NavItem>
+
             {this.props.isAuthenticated ? (
               <button onClick={() => this.props.logOutMDP()}>Logout</button>
             ) : null}
+            </Container>
           </Navbar>
           <Route path="/signup" component={SignupPage} />
 
