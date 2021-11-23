@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardHeader, CardBody, CardText } from "reactstrap";
+import { Card } from "react-bootstrap";
 
 const CovidCard = (props) => {
   let style = {
@@ -14,14 +14,14 @@ const CovidCard = (props) => {
   };
   return (
     <Card className="card text-white bg-secondary" style={style}>
-      <CardHeader style={center}>
+      <Card.Header style={center}>
         <h3>
           {props.address}, {props.district}
         </h3>
-      </CardHeader>
-      <CardBody style={center}>
-        <CardText>Number of infectant(s): {props.count}</CardText>
-      </CardBody>
+      </Card.Header>
+      <Card.Body style={center}>
+        <Card.Text>Number of infectant(s): {props.count}</Card.Text>
+      </Card.Body>
     </Card>
   );
 };
