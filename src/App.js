@@ -19,8 +19,6 @@ import "./App.css";
 //   </div>
 //   )
 // }
- 
-
 
 // Base Functional Application, functional components are great for displaying data
 // function App() {
@@ -273,11 +271,10 @@ import Element from "./Element.js";
 import BootstrapElement from "./BootstrapElement.js";
 import StatefulComponent from "./StatefulComponent.js";
 
-import { Button } from "reactstrap";
+import { Button } from "react-bootstrap";
 
-import {FunctionalComponent} from "./components/FunctionalComponent.jsx"
-import Counter from "./components/Counter.jsx"
-
+import { FunctionalComponent } from "./components/FunctionalComponent.jsx";
+import Counter from "./components/Counter.jsx";
 
 class App extends React.Component {
   render() {
@@ -300,10 +297,10 @@ class App extends React.Component {
         <Element age="99" name="Sam's World"></Element>
         <BootstrapElement buttonLabel="Click me" />
         <StatefulComponent />
-        <Button color="danger">ReactStrap Button</Button>
+        <Button color="danger">React Button</Button>
         <h1>Antoher header </h1>
         <FunctionalComponent />
-        <Counter name='Bibek' />
+        <Counter name="Bibek" />
       </div>
     );
   }
