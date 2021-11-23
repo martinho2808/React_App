@@ -42,6 +42,15 @@
 //     );
 //   }
 // }
+/**
+Buttons could be done like this:
+
+import {Button} from 'react-bootstrap'
+
+<Button variant="danger"  type="submit" value="submit">Submit me. </Button>
+
+
+ */
 
 // React functional component
 
@@ -67,10 +76,21 @@ export default function InputForm(props) {
           value={item}
           onChange={(e) => setItem(e.currentTarget.value)}
         />
-        <button className="btn btn-primary" type="submit" value="submit">
+        {/* The button code below still applies bootstrap style */}
+        <button className="btn btn-danger" type="submit" value="submit">
           Submit
         </button>
       </form>
     </>
   );
 }
+
+/**
+Buttons could be done like this:
+
+import {Button} from 'react-bootstrap'
+
+<Button variant="danger"  type="submit" value="submit">Submit me. </Button>
+
+
+ */

@@ -7,20 +7,20 @@ import "bootstrap/dist/css/bootstrap.min.css"; // this allows the css of bootstr
 import AppExercise from "./AppExerciseDay53.js";
 import AppUE from "./AppUE";
 
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById("root")
-// );
-
-// use effect examples
 ReactDOM.render(
   <React.StrictMode>
-    <AppUE />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
+
+// use effect examples
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <AppUE />
+//   </React.StrictMode>,
+//   document.getElementById("root")
+// );
 
 // uncomment below and comment out above for exercises
 // ReactDOM.render(

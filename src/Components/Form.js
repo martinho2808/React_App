@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, ButtonGroup } from "reactstrap";
+import { Button, ButtonGroup } from "react-bootstrap";
 
 // class based form
 export default class AddFormItems extends React.Component {
@@ -71,7 +71,7 @@ export default class AddFormItems extends React.Component {
             <ButtonGroup>
               <label>
                 <Button
-                  color="info"
+                  variant="info"
                   onClick={() => this.handleOptionChange("Male")}
                   active={this.state.selectedOption === "Male"}
                   onChange={this.handleOptionChange}
@@ -81,7 +81,7 @@ export default class AddFormItems extends React.Component {
               </label>
               <label>
                 <Button
-                  color="info"
+                  variant="secondary"
                   onClick={() => this.handleOptionChange("Female")}
                   active={this.state.selectedOption === "Female"}
                   onChange={this.handleOptionChange}
@@ -107,7 +107,7 @@ export default class AddFormItems extends React.Component {
             onChange={this.handleInputChange}
           />
           <br />
-          <Button type="submit" value="submit" color="primary">
+          <Button type="submit" value="submit" variant="danger">
             Submit{" "}
           </Button>
         </form>
@@ -119,7 +119,7 @@ export default class AddFormItems extends React.Component {
 // Functional hook based component
 
 // import { useState } from "react";
-// import { Button, ButtonGroup } from "reactstrap";
+// import { Button, ButtonGroup } from "react-bootstrap";
 
 // export default function AddFormItem() {
 //   const [selectedOption, setSelectedOption] = useState("");
@@ -146,7 +146,7 @@ export default class AddFormItems extends React.Component {
 //           <ButtonGroup>
 //             <label>
 //               <Button
-//                 color="info"
+//                 variant="info"
 //                 onClick={() => setSelectedOption("Male")}
 //                 active={selectedOption === "Male"}
 //               >
@@ -155,7 +155,7 @@ export default class AddFormItems extends React.Component {
 //             </label>
 //             <label>
 //               <Button
-//                 color="info"
+//                 variant="secondary"
 //                 onClick={() => setSelectedOption("Female")}
 //                 active={selectedOption === "Female"}
 //               >
@@ -181,7 +181,7 @@ export default class AddFormItems extends React.Component {
 //           onChange={(e) => setEmail(e.currentTarget.value)}
 //         />
 
-//         <Button type="submit" value="submit">
+//         <Button type="submit" value="submit" variant="danger">
 //           Submit
 //         </Button>
 //       </form>
