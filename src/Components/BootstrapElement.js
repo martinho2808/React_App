@@ -1,10 +1,8 @@
 // Contains State and Props
-
 import React from "react";
+import { Modal } from "react-bootstrap";
 
-import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
-
-export default class BootstrapElement extends React.Component {
+class BootstrapElement extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,16 +17,16 @@ export default class BootstrapElement extends React.Component {
   render() {
     return (
       <div>
-        <button className="btn btn-danger" onClick={this.toggle}>
+        <button className="btn btn-warning" onClick={this.toggle}>
           {this.props.buttonLabel}
         </button>
         <Modal
-          isOpen={this.state.modal}
-          toggle={this.toggle}
+          show={this.state.modal}
+          onHide={this.toggle}
           className={this.props.className}
         >
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-          <ModalBody>
+          <Modal.Header toggle={this.toggle}>Modal title</Modal.Header>
+          <Modal.Body>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -36,40 +34,44 @@ export default class BootstrapElement extends React.Component {
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
-          </ModalBody>
-          <ModalFooter>
+          </Modal.Body>
+          <Modal.Footer>
             <button className="btn btn-primary" onClick={this.toggle}>
               Do Something
             </button>{" "}
             <button className="btn btn-secondary" onClick={this.toggle}>
               Cancel
             </button>
-          </ModalFooter>
+          </Modal.Footer>
         </Modal>
       </div>
     );
   }
 }
 
+export default BootstrapElement;
+
 // Hooks Version of BootstrapElement
 // import { useState } from "react";
-// import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
+// import { Modal } from "react-bootstrap";
 
-// const BootstrapElement = (props) => {
-//   const [modal, setModal] = useState(false);
+// function BootstrapElement(props) {
+//   const [isOpen, setIsOpen] = useState(false);
 
 //   return (
 //     <div>
-//       <button className="btn btn-danger" onClick={() => setModal(!modal)}>
+//       <button className="btn btn-warning" onClick={() => setIsOpen(!isOpen)}>
 //         {props.buttonLabel}
 //       </button>
 //       <Modal
-//         isOpen={modal}
-//         toggle={() => setModal(!modal)}
+//         show={isOpen}
+//         onHide={() => setIsOpen(!isOpen)}
 //         className={props.className}
 //       >
-//         <ModalHeader toggle={() => setModal(!modal)}>Modal title</ModalHeader>
-//         <ModalBody>
+//         <Modal.Header toggle={() => setIsOpen(!isOpen)}>
+//           Modal title
+//         </Modal.Header>
+//         <Modal.Body>
 //           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 //           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
 //           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -77,21 +79,24 @@ export default class BootstrapElement extends React.Component {
 //           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 //           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 //           culpa qui officia deserunt mollit anim id est laborum.
-//         </ModalBody>
-//         <ModalFooter>
-//           <button className="btn btn-primary" onClick={() => setModal(!modal)}>
+//         </Modal.Body>
+//         <Modal.Footer>
+//           <button
+//             className="btn btn-primary"
+//             onClick={() => setIsOpen(!isOpen)}
+//           >
 //             Do Something
 //           </button>{" "}
 //           <button
 //             className="btn btn-secondary"
-//             onClick={() => setModal(!modal)}
+//             onClick={() => setIsOpen(!isOpen)}
 //           >
 //             Cancel
 //           </button>
-//         </ModalFooter>
+//         </Modal.Footer>
 //       </Modal>
 //     </div>
 //   );
-// };
+// }
 
 // export default BootstrapElement;
