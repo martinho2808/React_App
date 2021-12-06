@@ -1,6 +1,11 @@
-import { Link, Route } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import Home from "./Home.js";
+import Landing from "./Landing.js";
 import Profile from "./Profile.js";
+
+function NoMatch() {
+  return <div>No page found with that URL</div>;
+}
 
 function App() {
   const link = {
@@ -14,6 +19,9 @@ function App() {
         Welcome to the Application Click on the links below to see new 'pages'
       </h2>
       <nav>
+        <Link style={link} to="/">
+          Landing Page
+        </Link>
         <Link style={link} to="/home">
           Home
         </Link>
@@ -27,8 +35,12 @@ function App() {
       </div>
       {/* Not Displayed on the screen */}
       <div>
-        <Route path="/home" component={Home} />
-        <Route path="/profile" component={Profile} />
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="*" element={<NoMatch />} />
+        </Routes>
       </div>
     </div>
   );
