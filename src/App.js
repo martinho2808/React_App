@@ -1,13 +1,9 @@
-import {
-  Switch,
-  useRouteMatch,
-  useParams,
-  Link,
-  Route,
-} from "react-router-dom";
+import { Routes, Link, Route } from "react-router-dom";
 import Home from "./Home.js";
 import Profile from "./Profile.js";
 import Welcome from "./Welcome.js";
+import UserProfile from "./UserProfile.js";
+import EditUserProfile from "./EditProfile.js";
 
 function App() {
   const link = {
@@ -35,12 +31,15 @@ function App() {
         <h4>Part of landing page</h4>
       </div>
       {/* Not Displayed on the screen */}
+      <Routes>
+        <Route path="/" element={<Welcome />} />
+        <Route path="home" element={<Home />} />
 
-      {/* <Switch> */}
-      <Route exact path="/" component={Welcome} />
-      <Route path="/home" component={Home} />
-      <Route path="/profile" component={Profile} />
-      {/* </Switch> */}
+        <Route path="profile" element={<Profile />}>
+          <Route path="editProfile" element={<EditUserProfile />} />
+          <Route path="seeProfile" element={<UserProfile name="sam" />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
