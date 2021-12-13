@@ -5,8 +5,9 @@ import QuestionerPage from "./Pages/QuestionerPage";
 import WelcomePage from "./Pages/WelcomePage";
 import TimerPage from "./Pages/TimerPage";
 import GoBack from "./Components/GoBack";
+import { DefinedUserPage, Page, DefinedInfoPage } from "./Pages/WelcomePage";
 
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 
 export default function App() {
   const LinkStyle = {
@@ -39,18 +40,21 @@ export default function App() {
       </div>
 
       <div>
-        <Switch>
-          <Route exact path="/">
-            <h3>Welcome no component </h3>
+        <Routes>
+          <Route path="/" element={LandingPage} />
+          <Route path="welcome" element={<WelcomePage />}>
+            <Route path="userPage" element={<DefinedUserPage />} />
+            <Route path="infoPage" element={<DefinedInfoPage />} />
+            <Route path=":page" element={<Page />} />
           </Route>
-          <Route path="/welcome" component={WelcomePage} />
-          <Route path="/LeaderBoard" component={LeaderBoardPage} />
-          <Route path="/LifeCycleMethod" component={LifeCycleMethodPage} />
-          <Route path="/Questioner" component={QuestionerPage} />
-          <Route path="/FormComponent" component={FormComponentPage} />
-          <Route path="/Timer" component={TimerPage} />
+          <Route path="/LeaderBoard" element={<LeaderBoardPage />} />
+          <Route path="/LifeCycleMethod" element={<LifeCycleMethodPage />} />
+          <Route path="/Questioner" element={<QuestionerPage />} />
+          <Route path="/FormComponent" element={<FormComponentPage />} />
+          <Route path="/Timer" element={<TimerPage />} />
           <Route
-            component={() => {
+            path="*"
+            element={() => {
               return (
                 <div>
                   <h1 className="text-danger">Error</h1>
@@ -58,8 +62,16 @@ export default function App() {
               );
             }}
           />
-        </Switch>
+        </Routes>
       </div>
     </>
+  );
+}
+
+function LandingPage() {
+  return (
+    <div>
+      <h1>Landing Here</h1>
+    </div>
   );
 }
