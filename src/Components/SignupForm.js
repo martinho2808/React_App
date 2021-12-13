@@ -96,16 +96,26 @@ import { signupThunk } from "../Redux/auth/actions";
 const Signup = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const dispatch = useDispatch();
 
   const signup = () => {
-    dispatch(signupThunk(email, password));
+    dispatch(signupThunk(email, password, username));
   };
 
   return (
     <div>
       <label>
         Username:
+        <input
+          onChange={(e) => setUsername(e.currentTarget.value)}
+          type="text"
+          value={username}
+        />
+      </label>
+      <br />
+      <label>
+        Email:
         <input
           onChange={(e) => setEmail(e.currentTarget.value)}
           type="text"

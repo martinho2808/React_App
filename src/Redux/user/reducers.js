@@ -7,7 +7,7 @@ const initialState = {
 export function userReducer(state = initialState, action) {
   switch (action.type) {
     case USER_GET_SUCCESS:
-      return { user: state.user.concat([...action.payload]) };
+      return { user: action.payload };
 
     case USER_GET_FAILURE:
       return state;

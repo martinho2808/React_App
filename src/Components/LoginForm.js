@@ -106,21 +106,21 @@ import FacebookLogin from "react-facebook-login";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { loginUserThunk, loginFacebookThunk } from "../Redux/auth/actions";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
   const [email, setEmail] = useState("Insert Email");
   const [password, setPassword] = useState("Insert Password");
   const auth = useSelector((state) => state.authStore.isAuthenticated);
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log(auth);
     if (auth === true) {
-      history.push("/users");
+      navigate("/users");
     }
-  }, [auth, history]);
+  }, [auth, navigate]);
 
   const login = () => {
     dispatch(loginUserThunk(email, password));
