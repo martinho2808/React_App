@@ -26,6 +26,28 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 describe("<Login />", () => {
+  it("handles server error", async () => {
+    server.use(
+      rest.post(
+        `${process.env.REACT_APP_API_SERVER}/api/login`,
+        (req, res, ctx) => {
+          return res(ctx.json({}));
+        }
+      )
+    );
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
+    );
+    fireEvent.click(screen.getByText("Login"));
+    await waitFor(() => {
+      expect(screen.queryByText(/success/i)).toBeFalsy();
+    });
+  });
+
   it("can show success message after login", async () => {
     render(
       <BrowserRouter>
