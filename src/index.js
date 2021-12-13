@@ -9,7 +9,7 @@ import AppExercise54 from "./AppExerciseDay54.js";
 
 import AppCovid from "./AppCovid.js";
 
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 // ReactDOM.render(
 //   <React.StrictMode>
@@ -20,9 +20,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 // Uncomment below block and comment out above for day54.
 ReactDOM.render(
-  <Router>
+  <BrowserRouter>
     <AppExercise54 />
-  </Router>,
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

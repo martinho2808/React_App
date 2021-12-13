@@ -5,9 +5,9 @@ import QuestionerPage from "./Pages/QuestionerPage";
 import WelcomePage from "./Pages/WelcomePage";
 import TimerPage from "./Pages/TimerPage";
 import GoBack from "./Components/GoBack";
-import "./App.scss";
+import { DefinedUserPage, Page, DefinedInfoPage } from "./Pages/WelcomePage";
 
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 
 export default function App() {
   const LinkStyle = {
@@ -16,39 +16,62 @@ export default function App() {
     color: "#000000",
   };
   return (
-    <div className="body">
+    <>
       <div>
-        <Link className="linkStyle" to="/">
+        <Link style={LinkStyle} to="/welcome">
           HomePage
         </Link>
-        <Link className="linkStyle" to="/LeaderBoard">
+        <Link style={LinkStyle} to="/LeaderBoard">
           LeaderBoard
         </Link>
-        <Link className="linkStyle" to="LifeCycleMethod">
+        <Link style={LinkStyle} to="LifeCycleMethod">
           LifeCycleMethod
         </Link>
-        <Link className="linkStyle" to="Questioner">
+        <Link style={LinkStyle} to="Questioner">
           Questioner
         </Link>
-        <Link className="linkStyle" to="FormComponent">
+        <Link style={LinkStyle} to="FormComponent">
           Forms
         </Link>
-        <Link className="linkStyle" to="Timer">
+        <Link style={LinkStyle} to="Timer">
           Timer
         </Link>
         <GoBack />
       </div>
 
       <div>
-        <Switch>
-          <Route exact path="/" component={WelcomePage} />
-          <Route path="/LeaderBoard" component={LeaderBoardPage} />
-          <Route path="/LifeCycleMethod" component={LifeCycleMethodPage} />
-          <Route path="/Questioner" component={QuestionerPage} />
-          <Route path="/FormComponent" component={FormComponentPage} />
-          <Route path="/Timer" component={TimerPage} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={LandingPage} />
+          <Route path="welcome" element={<WelcomePage />}>
+            <Route path="userPage" element={<DefinedUserPage />} />
+            <Route path="infoPage" element={<DefinedInfoPage />} />
+            <Route path=":page" element={<Page />} />
+          </Route>
+          <Route path="/LeaderBoard" element={<LeaderBoardPage />} />
+          <Route path="/LifeCycleMethod" element={<LifeCycleMethodPage />} />
+          <Route path="/Questioner" element={<QuestionerPage />} />
+          <Route path="/FormComponent" element={<FormComponentPage />} />
+          <Route path="/Timer" element={<TimerPage />} />
+          <Route
+            path="*"
+            element={() => {
+              return (
+                <div>
+                  <h1 className="text-danger">Error</h1>
+                </div>
+              );
+            }}
+          />
+        </Routes>
       </div>
+    </>
+  );
+}
+
+function LandingPage() {
+  return (
+    <div>
+      <h1>Landing Here</h1>
     </div>
   );
 }
