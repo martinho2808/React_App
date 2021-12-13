@@ -8,6 +8,7 @@ import "@testing-library/jest-dom/extend-expect";
 import Login from "../Components/LoginForm";
 import { Provider } from "react-redux";
 import { store } from "../Redux/store";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 const server = setupServer(
   rest.post(
@@ -37,7 +38,11 @@ describe("<Login />", () => {
     );
     render(
       <Provider store={store}>
-        <Login history={[]} />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login />} />
+          </Routes>
+        </BrowserRouter>
       </Provider>
     );
     fireEvent.click(screen.getByText("Login"));
@@ -49,7 +54,11 @@ describe("<Login />", () => {
   it("can show success message after login", async () => {
     render(
       <Provider store={store}>
-        <Login history={[]} />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login />} />
+          </Routes>
+        </BrowserRouter>
       </Provider>
     );
     fireEvent.change(screen.getByLabelText(/username/i), {
