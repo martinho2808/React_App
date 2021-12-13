@@ -5,8 +5,9 @@ import { setupServer } from "msw/node";
 import { render, fireEvent, waitFor, screen } from "./test-utils";
 // introducing .toHaveTextContent() method
 import "@testing-library/jest-dom/extend-expect";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "../Components/LoginForm";
+import Users from "../Components/UsersList.js";
 
 const server = setupServer(
   rest.post(
@@ -20,7 +21,7 @@ const server = setupServer(
   })
 );
 
-beforeAll(() => server.listen());
+beforeEach(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
@@ -28,11 +29,13 @@ describe("<Login />", () => {
   it("can show success message after login", async () => {
     render(
       <BrowserRouter>
-        <Route>
-          <Login />
-        </Route>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/users" element={<Users />} />
+        </Routes>
       </BrowserRouter>
     );
+    console.log(screen);
     fireEvent.change(screen.getByLabelText(/email/i), {
       currentTarget: { value: "sam" },
     });
@@ -40,29 +43,9 @@ describe("<Login />", () => {
       currentTarget: { value: "123" },
     });
     fireEvent.click(screen.getByText("Login"));
-    let result = await screen.findByText(/work/i);
-    expect(result).toHaveTextContent(/login/i);
-  });
+    let result = await screen.findByText(/user/i);
 
-  it("handles server error", async () => {
-    server.use(
-      rest.post(
-        `${process.env.REACT_APP_API_SERVER}/api/login`,
-        (req, res, ctx) => {
-          return res(ctx.json({}));
-        }
-      )
-    );
-    render(
-      <BrowserRouter>
-        <Route>
-          <Login />
-        </Route>
-      </BrowserRouter>
-    );
-    fireEvent.click(screen.getByText("Login"));
-    await waitFor(() => {
-      expect(screen.queryByText(/success/i)).toBeFalsy();
-    });
+    console.log(result);
+    expect(result).toHaveTextContent(/Welcome/i);
   });
 });
