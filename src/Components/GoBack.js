@@ -32,6 +32,7 @@ const GoBack = () => {
 
   useEffect(() => {
     console.log(navigate);
+    console.log('Navigate back -1')
   });
 
   const back = () => {
