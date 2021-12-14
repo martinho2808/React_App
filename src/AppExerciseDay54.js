@@ -41,7 +41,7 @@ export default function App() {
 
       <div>
         <Routes>
-          <Route path="/" element={LandingPage} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="welcome" element={<WelcomePage />}>
             <Route path="userPage" element={<DefinedUserPage />} />
             <Route path="infoPage" element={<DefinedInfoPage />} />
