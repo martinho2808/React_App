@@ -6,17 +6,18 @@ import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css"; // this allows the css of bootstrap to be used throughout my whole application
 import AppExercise from "./AppExercise.js";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+// code to render the app to the screen
+// ReactDOM.render(<App />, document.getElementById("root"));
 
 // uncomment below and comment out above for exercises
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <AppExercise />
-//   </React.StrictMode>,
-//   document.getElementById("root")
-// );
-// code to implement the JSX element within the React application.
+ReactDOM.render(
+  <React.StrictMode>
+    <AppExercise />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
 
+// code to implement the JSX element within the React application.
 // import ReactDOM from "react-dom";
 // import reportWebVitals from "./reportWebVitals";
 // import { newElement } from "./JSXelements/JSXelement";

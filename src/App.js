@@ -2,26 +2,28 @@ import logo from "./logo.svg";
 import "./App.css";
 
 // // Base Functional Application, functional components are great for displaying data
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
+
+export default App;
 
 // Base Class Based Application, class based components can display data as well as contain function logic to achieve interaction or even API calls, also with class you have access to Reacts life cycle methods
 // import React from "react";
@@ -48,6 +50,7 @@ import "./App.css";
 //     );
 //   }
 // }
+// export default App
 
 // Using In-Line Styling in React (functional)
 
@@ -111,6 +114,7 @@ import "./App.css";
 //     </div>
 //   );
 // }
+// export default App
 
 // Styling using stlye blocks/ variables (functional)
 
@@ -182,6 +186,7 @@ import "./App.css";
 //     </div>
 //   );
 // }
+// export default App
 
 // Styling your react application using a CSS style sheet
 
@@ -237,61 +242,118 @@ import "./App.css";
 //     </div>
 //   );
 // }
+// export default App
+
+// Functional component  version of application with an added React Element
+
+// import React from "react";
+// import Element from "./Components/Element.js";
+// import BootstrapElement from "./Components/BootstrapElement.js";
+// import StatefulComponent from "./Components/StatefulComponent.js";
+// import HoverableComponent from "./Components/HoverableStateComponent.js";
+// import ShoppingList from "./Components/ShoppingList.js";
+// import Loops from "./Components/Loops";
+// import ClockNoLCM from "./Components/ClockNoLCM.js";
+// import Counter from "./Components/Counter";
+// import CardApp from "./Components/CardApp";
+// import Hello from "./Components/test";
+// const App = () => {
+//   // To be passed as props - Loops
+//   const array = [
+//     { name: "Andy", age: 26, nationality: "Chinese" },
+//     { name: "Bibek", age: 20, nationality: "Nepalese" },
+//     { name: "Lesley", age: 26, nationality: "Hong Kong" },
+//     { name: "Sam", age: 28, nationality: "British" },
+//   ];
+
+//   return (
+//     <div className="App">
+//       <header className="App-header">
+//         <img src={logo} className="App-logo" alt="logo" />
+//         <p>
+//           Edit <code>src/App.js</code> and save to reload. Hello world
+//         </p>
+//         <a
+//           className="btn btn-primary" // Added bootstrap with yarn add bootstrap, altered index.js
+//           href="https://reactjs.org"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           Learn React
+//         </a>
+//       </header>
+//       <Hello person="Hayley" />
+//       <Element age="99" name="Sam world"></Element>
+//       <BootstrapElement buttonLabel="Click me" />
+//       <StatefulComponent />
+//       <HoverableComponent />
+//       <ShoppingList name="Sherman" />
+//       <Loops />
+//       <Loops array={array} />
+//       <ClockNoLCM />
+//       <Counter name="Bibek" />
+//       <Counter name="Siddarth" />
+//       <CardApp />
+//     </div>
+//   );
+// };
+
+// export default App;
 
 // Class version of application with an added React Element
 
-import React from "react";
-import Element from "./Components/Element.js";
-import BootstrapElement from "./Components/BootstrapElement.js";
-import StatefulComponent from "./Components/StatefulComponent.js";
-import HoverableComponent from "./Components/HoverableStateComponent.js";
-import ShoppingList from "./Components/ShoppingList.js";
-import Loops from "./Components/Loops";
-import ClockNoLCM from "./Components/ClockNoLCM.js";
-import Counter from "./Components/Counter";
-import CardApp from "./Components/CardApp";
-import Hello from "./Components/test";
-class App extends React.Component {
-  render() {
-    // To be passed as props - Loops
-    // const array = [
-    //   { name: "Andy", age: 26, nationality: "Chinese" },
-    //   { name: "Bibek", age: 20, nationality: "Nepalese" },
-    //   { name: "Lesley", age: 26, nationality: "Hong Kong" },
-    //   { name: "Sam", age: 28, nationality: "British" },
-    // ];
+// import React from "react";
+// import Element from "./Components/Element.js";
+// import BootstrapElement from "./Components/BootstrapElement.js";
+// import StatefulComponent from "./Components/StatefulComponent.js";
+// import HoverableComponent from "./Components/HoverableStateComponent.js";
+// import ShoppingList from "./Components/ShoppingList.js";
+// import Loops from "./Components/Loops";
+// import ClockNoLCM from "./Components/ClockNoLCM.js";
+// import Counter from "./Components/Counter";
+// import CardApp from "./Components/CardApp";
+// import Hello from "./Components/test";
+// class App extends React.Component {
+//   render() {
+//     // To be passed as props - Loops
+//     // const array = [
+//     //   { name: "Andy", age: 26, nationality: "Chinese" },
+//     //   { name: "Bibek", age: 20, nationality: "Nepalese" },
+//     //   { name: "Lesley", age: 26, nationality: "Hong Kong" },
+//     //   { name: "Sam", age: 28, nationality: "British" },
+//     // ];
 
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload. Hello world
-          </p>
-          <a
-            className="btn btn-primary" // Added bootstrap with yarn add bootstrap, altered index.js
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-        <Hello person="Hayley" />
-        <Element age="99" name="Sam world"></Element>
-        <BootstrapElement buttonLabel="Click me" />
-        <StatefulComponent />
-        <HoverableComponent />
-        <ShoppingList name="Sherman" />
-        <Loops />
-        {/* <Loops array={array} /> */}
-        <ClockNoLCM />
-        <Counter name="Bibek" />
-        <Counter name="Siddarth" />
-        <CardApp />
-      </div>
-    );
-  }
-}
+//     return (
+//       <div className="App">
+//         <header className="App-header">
+//           <img src={logo} className="App-logo" alt="logo" />
+//           <p>
+//             Edit <code>src/App.js</code> and save to reload. Hello world
+//           </p>
+//           <a
+//             className="btn btn-primary" // Added bootstrap with yarn add bootstrap, altered index.js
+//             href="https://reactjs.org"
+//             target="_blank"
+//             rel="noopener noreferrer"
+//           >
+//             Learn React
+//           </a>
+//         </header>
+//         <Hello person="Hayley" />
+//         <Element age="99" name="Sam world"></Element>
+//         <BootstrapElement buttonLabel="Click me" />
+//         <StatefulComponent />
+//         <HoverableComponent />
+//         <ShoppingList name="Sherman" />
+//         <Loops />
+//         {/* <Loops array={array} /> */}
+//         <ClockNoLCM />
+//         <Counter name="Bibek" />
+//         <Counter name="Siddarth" />
+//         <CardApp />
+//       </div>
+//     );
+//   }
+// }
 
-export default App;
+// export default App;

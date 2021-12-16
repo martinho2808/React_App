@@ -1,3 +1,83 @@
+// Leaderboard using react hooks
+import RandomName from "node-random-name";
+import { useState } from "react";
+import Counter from "./CounterWLB";
+
+export default function LeaderBoard() {
+  const [counters, setCounters] = useState([
+    { name: RandomName({ seed: Math.random() }), count: 0 },
+    { name: RandomName(), count: 2 },
+  ]);
+
+  // Exercise C
+  const addCounter = () => {
+    let newCounterArray = counters.concat([
+      { name: RandomName({ seed: Math.random() }), count: 0 },
+    ]);
+    setCounters(newCounterArray);
+  };
+
+  const removeCounter = (i) => {
+    let newObj = [...counters];
+    newObj.splice(i, 1);
+    setCounters(newObj);
+  };
+
+  const handleClickPlus = (i) => {
+    let newObj = { ...counters[i], count: counters[i].count + 1 };
+    let newArray = [...counters];
+    newArray[i] = newObj;
+    setCounters(newArray);
+  };
+
+  const handleClickMinus = (i) => {
+    let newObj = { ...counters[i], count: counters[i].count - 1 };
+    let newArray = [...counters];
+    newArray[i] = newObj;
+    setCounters(newArray);
+  };
+
+  const renderCounter = (i, name, count) => {
+    return (
+      <Counter
+        count={count}
+        name={name}
+        key={i}
+        decrement={() => handleClickMinus(i)}
+        increment={() => handleClickPlus(i)}
+        deleteCounter={() => removeCounter(i)}
+      />
+    );
+  };
+
+  const sortedData = []
+    .concat(counters)
+    .sort((a, b) => b.count - a.count)
+    .map((item, i) => <div key={i}>{item.name}</div>);
+
+  console.log(counters);
+
+  return (
+    <>
+      <div>
+        <button onClick={addCounter}> Add Counter</button>
+      </div>
+      {counters && counters.length > 0
+        ? counters.map((counter, index) =>
+            renderCounter(index, counter.name, counter.count)
+          )
+        : "No counters"}
+      <div>
+        <br />
+        <br />
+        <br />
+        <h3>LeaderBoard</h3>
+        {sortedData}
+      </div>
+    </>
+  );
+}
+
 // import RandomName from "node-random-name";
 // import React from "react";
 // import Counter from "./CounterWLB";
@@ -119,83 +199,3 @@
 //     );
 //   }
 // }
-
-// Leaderboard using react hooks
-import RandomName from "node-random-name";
-import { useState } from "react";
-import Counter from "./CounterWLB";
-
-export default function LeaderBoard(props) {
-  const [counters, setCounters] = useState([
-    { name: RandomName({ seed: Math.random() }), count: 0 },
-    { name: RandomName(), count: 2 },
-  ]);
-
-  // Exercise C
-  const addCounter = () => {
-    let newCounterArray = counters.concat([
-      { name: RandomName({ seed: Math.random() }), count: 0 },
-    ]);
-    setCounters(newCounterArray);
-  };
-
-  const removeCounter = (i) => {
-    let newObj = [...counters];
-    newObj.splice(i, 1);
-    setCounters(newObj);
-  };
-
-  const handleClickPlus = (i) => {
-    let newObj = { ...counters[i], count: counters[i].count + 1 };
-    let newArray = [...counters];
-    newArray[i] = newObj;
-    setCounters(newArray);
-  };
-
-  const handleClickMinus = (i) => {
-    let newObj = { ...counters[i], count: counters[i].count - 1 };
-    let newArray = [...counters];
-    newArray[i] = newObj;
-    setCounters(newArray);
-  };
-
-  const renderCounter = (i, name, count) => {
-    return (
-      <Counter
-        count={count}
-        name={name}
-        key={i}
-        decrement={() => handleClickMinus(i)}
-        increment={() => handleClickPlus(i)}
-        deleteCounter={() => removeCounter(i)}
-      />
-    );
-  };
-
-  const sortedData = []
-    .concat(counters)
-    .sort((a, b) => b.count - a.count)
-    .map((item, i) => <div key={i}>{item.name}</div>);
-
-  console.log(counters);
-
-  return (
-    <>
-      <div>
-        <button onClick={addCounter}> Add Counter</button>
-      </div>
-      {counters && counters.length > 0
-        ? counters.map((counter, index) =>
-            renderCounter(index, counter.name, counter.count)
-          )
-        : "No counters"}
-      <div>
-        <br />
-        <br />
-        <br />
-        <h3>LeaderBoard</h3>
-        {sortedData}
-      </div>
-    </>
-  );
-}
