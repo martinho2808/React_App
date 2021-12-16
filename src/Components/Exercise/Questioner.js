@@ -1,3 +1,30 @@
+// Exercise A Hooks example
+
+import { useState } from "react";
+
+export default function Questioner(props) {
+  const [answer, setAnswer] = useState("");
+
+  const query = () => {
+    const userInput = prompt(props.question);
+    if (userInput === null) {
+      setAnswer("Please click again and input an answer");
+    } else {
+      setAnswer(userInput);
+    }
+    return;
+  };
+
+  return (
+    <>
+      <button className="btn btn-primary" onClick={() => query()}>
+        Questioner
+      </button>
+      <p>{answer}</p>
+    </>
+  );
+}
+
 // Exercise A - class based
 
 // import React from "react";
@@ -36,35 +63,3 @@
 //     );
 //   }
 // }
-
-// Exercise A Hooks example
-
-// import { useState } from 'react';
-
-// export default function Questioner(props){
-//     const [answer, setAnswer] = useState('');
-
-//     const query = ()=> {
-//         const userInput = prompt(props.question)
-//         if(userInput === null){
-//           setAnswer('Please click again and input an answer')
-//         } else {
-//             setAnswer(userInput)
-//         } return
-//     }
-
-//     return (
-//         <>
-//         <button className="btn btn-primary" onClick={()=> query}>Questioner</button>
-//         <p>{answer}</p>
-//         </>
-//     )
-// }
-
-export default function Questioner(props) {
-  return (
-    <>
-      <button onClick={props.questionFunc}>Click me for a question! </button>
-    </>
-  );
-}

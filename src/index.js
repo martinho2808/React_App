@@ -4,10 +4,11 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css"; // this allows the css of bootstrap to be used throughout my whole application
-import AppExercise from "./AppExerciseDay53.js";
 import AppExercise54 from "./AppExerciseDay54.js";
-
+import AppExercise53 from "./AppExerciseDay53.js";
+import AppUE from "./AppUE";
 import AppCovid from "./AppCovid.js";
+import AppExercise52 from "./AppExerciseDay52.js";
 
 import { BrowserRouter } from "react-router-dom";
 
@@ -30,10 +31,18 @@ ReactDOM.render(
 // BACKEND LINK EXAMPLE:
 // ReactDOM.render(<AppCovid />, document.getElementById("root"));
 
-// uncomment below and comment out above for exercises
+// use effect examples
 // ReactDOM.render(
 //   <React.StrictMode>
-//     <AppExercise />
+//     <AppUE />
+//   </React.StrictMode>,
+//   document.getElementById("root")
+// );
+
+// uncomment below and comment out above for exercises --> change the number to see the various daily exercises
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <AppExercise53 />
 //   </React.StrictMode>,
 //   document.getElementById("root")
 // );
