@@ -1,3 +1,53 @@
+
+// Hook based functional component with Redux hooks
+import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { AddStudent, DeleteStudent } from "../Redux/class/actions";
+
+export const ClassList = (props) => {
+  const [student, setStudent] = useState("");
+  const studentsFromRedux = useSelector((state) => state.studentStore.students);
+
+  const dispatch = useDispatch();
+
+  return (
+    <div>
+      <label>Student</label>
+      <br />
+      <input
+        type="text"
+        value={student}
+        placeholder="Insert Student Name"
+        onChange={(e) => setStudent(e.target.value)}
+      />
+      <br />
+      <button
+        onClick={() => {
+          dispatch(AddStudent(student));
+          setStudent("");
+        }}
+      >
+        Add Student
+      </button>
+
+      <br />
+
+      <h2> Students </h2>
+      {studentsFromRedux && studentsFromRedux.length > 0
+        ? studentsFromRedux.map((student, i) => (
+            <div key={i}>
+              <p>{student}</p>
+              <button onClick={() => dispatch(DeleteStudent(i))}>
+                Delete me!
+              </button>
+            </div>
+          ))
+        : null}
+    </div>
+  );
+};
+
+// class based component with redux connect 
 // import React from "react";
 // import { connect } from "react-redux";
 // import { AddStudent, DeleteStudent } from "../Redux/class/actions";
@@ -62,49 +112,3 @@
 //   mapDispatchToProps
 // )(PureClassList);
 
-import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { AddStudent, DeleteStudent } from "../Redux/class/actions";
-
-export const ClassList = (props) => {
-  const [student, setStudent] = useState("");
-  const studentsFromRedux = useSelector((state) => state.studentStore.students);
-
-  const dispatch = useDispatch();
-
-  return (
-    <div>
-      <label>Student</label>
-      <br />
-      <input
-        type="text"
-        value={student}
-        placeholder="Insert Student Name"
-        onChange={(e) => setStudent(e.target.value)}
-      />
-      <br />
-      <button
-        onClick={() => {
-          dispatch(AddStudent(student));
-          setStudent("");
-        }}
-      >
-        Add Student
-      </button>
-
-      <br />
-
-      <h2> Students </h2>
-      {studentsFromRedux && studentsFromRedux.length > 0
-        ? studentsFromRedux.map((student, i) => (
-            <div key={i}>
-              <p>{student}</p>
-              <button onClick={() => dispatch(DeleteStudent(i))}>
-                Delete me!
-              </button>
-            </div>
-          ))
-        : null}
-    </div>
-  );
-};
