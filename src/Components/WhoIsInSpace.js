@@ -109,35 +109,38 @@ export default function GetSpaceMan(props) {
 
 // example connecting to backend - Hook
 
-//import {useState} from "react";
+// import { useState, useEffect } from "react";
 // import axios from "axios";
 
-// const App =()=> {
-//   constructor(props) {
-//    let [users, setUsers = useState({users: [{ name: "Sam" }, { name: "Lesley" }]})
+// const App = () => {
+//   let [users, setUsers] = useState([{ name: "Sam" }, { name: "Lesley" }]);
 
-//   getData = () => {
+//   const getData = () => {
 //     axios.get(`${process.env.REACT_APP_API_SERVER}/api/user`).then((data) => {
-//       setUsers(data)
+//       setUsers(data.data);
 //     });
 //   };
 
-//  getData();
-//     return (
-//       <div className="App">
-//         <h1> Simple Backend Data Fetch</h1>
-//         <ul>
-//           {users &&
-//             users.map((user, index) => (
-//               <li key={index}> {user && user.name}</li>
-//             ))}
-//         </ul>
-//       </div>
-//     );
-//   }
-// }
+//   useEffect(() => {
+//     getData();
+//   }, []);
 
-// export default App
+//   console.log(users);
+//   return (
+//     <div className="App">
+//       <h1> Simple Backend Data Fetch</h1>
+//       <ul>
+//         {users && users.length > 0
+//           ? users.map((user, index) => (
+//               <li key={index}> {user && user.name}</li>
+//             ))
+//           : ""}
+//       </ul>
+//     </div>
+//   );
+// };
+
+// export default App;
 
 // example connecting to backend - class based
 

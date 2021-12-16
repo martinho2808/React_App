@@ -8,7 +8,6 @@ import AppExercise54 from "./AppExerciseDay54.js";
 import AppExercise53 from "./AppExerciseDay53.js";
 import AppUE from "./AppUE";
 import AppCovid from "./AppCovid.js";
-import AppExercise52 from "./AppExerciseDay52.js";
 
 import { BrowserRouter } from "react-router-dom";
 
