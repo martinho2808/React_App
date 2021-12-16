@@ -1,3 +1,31 @@
+import { useState, useEffect } from "react";
+
+export default function Clock() {
+  const [date, setDate] = useState(new Date());
+
+  function tick() {
+    console.log("tick");
+    setDate(new Date());
+  }
+
+  useEffect(() => {
+    console.log("Mounting");
+    const timerID = setInterval(tick, 1);
+
+    return () => {
+      clearInterval(timerID);
+      console.log("UnMounting");
+    };
+  });
+
+  return (
+    <>
+      <h1>Timer</h1>
+      <h2>The time is now {date.toLocaleTimeString()}</h2>
+    </>
+  );
+}
+
 // import React from "react";
 // export default class Clock extends React.Component {
 //   constructor(props) {
@@ -32,30 +60,3 @@
 //     );
 //   }
 // }
-
-import { useState, useEffect } from "react";
-
-export default function Clock() {
-  const [date, setDate] = useState(new Date());
-
-  function tick() {
-    setDate(new Date());
-  }
-
-  useEffect(() => {
-    const timerID = setInterval(tick, 1);
-    console.log("Mounting");
-
-    return () => {
-      clearInterval(timerID);
-      console.log("UnMounting");
-    };
-  });
-
-  return (
-    <>
-      <h1>Timer</h1>
-      <h2>The time is now {date.toLocaleTimeString()}</h2>
-    </>
-  );
-}

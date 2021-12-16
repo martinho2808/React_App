@@ -32,3 +32,5 @@ export default function AddToCompositeState() {
     </div>
   );
 }
+
+// see if you can turn this into a class based component
