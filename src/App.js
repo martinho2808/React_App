@@ -4,50 +4,56 @@ import "./App.css";
 // uncomment blocks below to see React usage
 
 // element
-// let data = (
-//   <div>
-//     <h1>I am a Element<h1>
-//   </div>
-// );
+let data = (
+  <div>
+    <h1>I am a Element</h1>
+  </div>
+);
 
-// Component
-// function Element () {
-//   return (
-//      <div>
-//     <h3 className="text-secondary">Hello Class</h3>
-//     <p className="text-danger">JSX</p>
-//   </div>
-//   )
-// }
+// Component with bootstrap css applied
+function Element() {
+  return (
+    <div>
+      <h3 className="text-secondary">Hello Class</h3>
+      <p className="text-danger">JSX</p>
+    </div>
+  );
+}
 
 // Base Functional Application, functional components are great for displaying data
-// function App() {
-//   // let logo = false;
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p className="text-danger">
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <Element ></Element>
-//         {/* {logo ? (
-//           <img src={logo} className="App-logo" alt="logo" />
-//         ) : (
-//           <h2>No Logo</h2>
-//         )} */}
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
+function App() {
+  // let logo = false;
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p className="text-danger">
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        {/* Using elements */}
+        <Element></Element>
+        <Element />
+        {/* Uncomment for another logo */}
+        {/* {logo ? (
+          <img src={logo} className="App-logo" alt="logo" />
+        ) : (
+          <h2>No Logo</h2>
+        )} */}
+
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
+
+export default App;
 
 // Base Class Based Application, class based components can display data as well as contain function logic to achieve interaction or even API calls, also with class you have access to Reacts life cycle methods
 // import React from "react";
@@ -74,6 +80,8 @@ import "./App.css";
 //     );
 //   }
 // }
+
+// export default App;
 
 // Using In-Line Styling in React (functional)
 
@@ -137,6 +145,8 @@ import "./App.css";
 //     </div>
 //   );
 // }
+
+// export default App;
 
 // Styling using stlye blocks/ variables (functional)
 
@@ -209,6 +219,8 @@ import "./App.css";
 //   );
 // }
 
+// export default App;
+
 // Styling your react application using a CSS style sheet
 
 // import "./App.css";
@@ -264,46 +276,90 @@ import "./App.css";
 //   );
 // }
 
+// export default App;
+
+// Functional component version of application with an added React Element
+
+// import React from "react";
+// import Element from "./Element.js";
+// import BootstrapElement from "./BootstrapElement.js";
+// import StatefulComponent from "./StatefulComponent.js";
+
+// import { Button } from "react-bootstrap";
+
+// import { FunctionalComponent } from "./components/FunctionalComponent.jsx";
+// import Counter from "./components/Counter.jsx";
+
+// const App = () => {
+//   return (
+//     <div className="App">
+//       <header className="App-header">
+//         <img src={logo} className="App-logo" alt="logo" />
+//         <p>
+//           Edit <code>src/App.js</code> and save to reload.
+//         </p>
+//         <a
+//           className="btn btn-primary" // Added bootstrap with yarn add bootstrap, altered index.js
+//           href="https://reactjs.org"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           Learn React
+//         </a>
+//       </header>
+//       <Element age="99" name="Sam's World"></Element>
+//       <BootstrapElement buttonLabel="Click me" />
+//       <StatefulComponent />
+//       <Button color="danger">React Button</Button>
+//       <h1>Antoher header </h1>
+//       <FunctionalComponent />
+//       <Counter name="Bibek" />
+//     </div>
+//   );
+// };
+
+// export default App;
+
 // Class version of application with an added React Element
 
-import React from "react";
-import Element from "./Element.js";
-import BootstrapElement from "./BootstrapElement.js";
-import StatefulComponent from "./StatefulComponent.js";
+// import React from "react";
+// import Element from "./Element.js";
+// import BootstrapElement from "./BootstrapElement.js";
+// import StatefulComponent from "./StatefulComponent.js";
 
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 
-import { FunctionalComponent } from "./components/FunctionalComponent.jsx";
-import Counter from "./components/Counter.jsx";
+// import { FunctionalComponent } from "./components/FunctionalComponent.jsx";
+// import Counter from "./components/Counter.jsx";
 
-class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="btn btn-primary" // Added bootstrap with yarn add bootstrap, altered index.js
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-        <Element age="99" name="Sam's World"></Element>
-        <BootstrapElement buttonLabel="Click me" />
-        <StatefulComponent />
-        <Button color="danger">React Button</Button>
-        <h1>Antoher header </h1>
-        <FunctionalComponent />
-        <Counter name="Bibek" />
-      </div>
-    );
-  }
-}
+// class App extends React.Component {
+//   render() {
+//     return (
+//       <div className="App">
+//         <header className="App-header">
+//           <img src={logo} className="App-logo" alt="logo" />
+//           <p>
+//             Edit <code>src/App.js</code> and save to reload.
+//           </p>
+//           <a
+//             className="btn btn-primary" // Added bootstrap with yarn add bootstrap, altered index.js
+//             href="https://reactjs.org"
+//             target="_blank"
+//             rel="noopener noreferrer"
+//           >
+//             Learn React
+//           </a>
+//         </header>
+//         <Element age="99" name="Sam's World"></Element>
+//         <BootstrapElement buttonLabel="Click me" />
+//         <StatefulComponent />
+//         <Button color="danger">React Button</Button>
+//         <h1>Antoher header </h1>
+//         <FunctionalComponent />
+//         <Counter name="Bibek" />
+//       </div>
+//     );
+//   }
+// }
 
-export default App;
+// export default App;
