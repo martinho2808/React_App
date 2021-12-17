@@ -1,147 +1,149 @@
-import React from "react";
-import { connect } from "react-redux";
+// Hook based functional component
+import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { AddPerson, loadSpacePeopleThunk } from "../Redux/people/actions";
 
-class PurePersonList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      person: "Update the Persons Name and Age",
-      age: 0,
-    };
-  }
+export const PersonList = (props) => {
+  const [person, setPerson] = useState("Insert Persons Name and Age");
+  const [age, setAge] = useState(18);
 
-  handleChange = (e) => {
-    if (e.currentTarget.name === "person") {
-      this.setState({
-        person: e.currentTarget.value,
-      });
-    } else if (e.currentTarget.name === "age") {
-      this.setState({
-        age: e.currentTarget.value,
-      });
-    }
-  };
+  const peopleFromRedux = useSelector((state) => state.peopleStore.people);
 
-  handleSubmit = (e) => {
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const person = {
-      name: this.state.person,
-      age: this.state.age,
+    const newPerson = {
+      name: person,
+      age: age,
     };
-    this.props.addPerson(person);
-    this.setState({
-      person: "Update the Persons Name and Age",
-      age: 0,
-    });
+    dispatch(AddPerson(newPerson));
+    setPerson("Insert Persons Name and Age");
+    setAge(18);
   };
 
-  render() {
-    return (
-      <>
-        <h3>People</h3>
-        {this.props.people.map((person, index) => (
-          <div key={index}>
-            {person.name} - {person.age}
-          </div>
-        ))}
+  return (
+    <>
+      <h2>People</h2>
+      {peopleFromRedux.map((person, i) => (
+        <div key={i}>
+          {person.name} - {person.age}
+        </div>
+      ))}
 
-        <h3> Add Person </h3>
-        <input
-          type="text"
-          value={this.state.person}
-          name="person"
-          onChange={this.handleChange}
-        />
-        <br />
-        <input
-          type="number"
-          value={this.state.age}
-          name="age"
-          onChange={this.handleChange}
-        />
-        <br />
-        <button onClick={this.handleSubmit}>Add Person</button>
-        <button onClick={() => this.props.spacePeople()}>SpacePeople</button>
-      </>
-    );
-  }
-}
-
-const mapStateToProps = (state) => {
-  return {
-    people: state.peopleStore.people,
-  };
+      <h3>Add Person</h3>
+      <input
+        type="text"
+        value={person}
+        onChange={(e) => setPerson(e.currentTarget.value)}
+      />
+      <br />
+      <input
+        type="number"
+        value={age}
+        onChange={(e) => setAge(e.currentTarget.value)}
+      />
+      <br />
+      <button type="submit" onClick={handleSubmit}>
+        {" "}
+        Submit Person
+      </button>
+      <button onClick={() => dispatch(loadSpacePeopleThunk())}>
+        SpacePeople
+      </button>
+    </>
+  );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addPerson: (person) => {
-      dispatch(AddPerson(person));
-    },
-    spacePeople: () => {
-      dispatch(loadSpacePeopleThunk());
-    },
-  };
-};
-
-export const PersonList = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PurePersonList);
-
-// import { useState } from "react";
-// import { useSelector, useDispatch } from "react-redux";
+// Class based component
+// import React from "react";
+// import { connect } from "react-redux";
 // import { AddPerson, loadSpacePeopleThunk } from "../Redux/people/actions";
 
-// export const PersonList = (props) => {
-//   const [person, setPerson] = useState("Insert Persons Name and Age");
-//   const [age, setAge] = useState(18);
-
-//   const peopleFromRedux = useSelector((state) => state.peopleStore.people);
-
-//   const dispatch = useDispatch();
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     const newPerson = {
-//       name: person,
-//       age: age,
+// class PurePersonList extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       person: "Update the Persons Name and Age",
+//       age: 0,
 //     };
-//     dispatch(AddPerson(newPerson));
-//     setPerson("Insert Persons Name and Age");
-//     setAge(18);
+//   }
+
+//   handleChange = (e) => {
+//     if (e.currentTarget.name === "person") {
+//       this.setState({
+//         person: e.currentTarget.value,
+//       });
+//     } else if (e.currentTarget.name === "age") {
+//       this.setState({
+//         age: e.currentTarget.value,
+//       });
+//     }
 //   };
 
-//   return (
-//     <>
-//       <h2>People</h2>
-//       {peopleFromRedux.map((person, i) => (
-//         <div key={i}>
-//           {person.name} - {person.age}
-//         </div>
-//       ))}
+//   handleSubmit = (e) => {
+//     e.preventDefault();
+//     const person = {
+//       name: this.state.person,
+//       age: this.state.age,
+//     };
+//     this.props.addPerson(person);
+//     this.setState({
+//       person: "Update the Persons Name and Age",
+//       age: 0,
+//     });
+//   };
 
-//       <h3>Add Person</h3>
-//       <input
-//         type="text"
-//         value={person}
-//         onChange={(e) => setPerson(e.currentTarget.value)}
-//       />
-//       <br />
-//       <input
-//         type="number"
-//         value={age}
-//         onChange={(e) => setAge(e.currentTarget.value)}
-//       />
-//       <br />
-//       <button type="submit" onClick={handleSubmit}>
-//         {" "}
-//         Submit Person
-//       </button>
-//       <button onClick={() => dispatch(loadSpacePeopleThunk())}>
-//         SpacePeople
-//       </button>
-//     </>
-//   );
+//   render() {
+//     return (
+//       <>
+//         <h3>People</h3>
+//         {this.props.people.map((person, index) => (
+//           <div key={index}>
+//             {person.name} - {person.age}
+//           </div>
+//         ))}
+
+//         <h3> Add Person </h3>
+//         <input
+//           type="text"
+//           value={this.state.person}
+//           name="person"
+//           onChange={this.handleChange}
+//         />
+//         <br />
+//         <input
+//           type="number"
+//           value={this.state.age}
+//           name="age"
+//           onChange={this.handleChange}
+//         />
+//         <br />
+//         <button onClick={this.handleSubmit}>Add Person</button>
+//         <button onClick={() => this.props.spacePeople()}>SpacePeople</button>
+//       </>
+//     );
+//   }
+// }
+
+// const mapStateToProps = (state) => {
+//   return {
+//     people: state.peopleStore.people,
+//   };
 // };
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     addPerson: (person) => {
+//       dispatch(AddPerson(person));
+//     },
+//     spacePeople: () => {
+//       dispatch(loadSpacePeopleThunk());
+//     },
+//   };
+// };
+
+// export const PersonList = connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(PurePersonList);

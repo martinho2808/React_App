@@ -1,4 +1,5 @@
-import React from "react";
+// Hook based functional component
+
 import { Routes, BrowserRouter, Link, Route, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -11,52 +12,6 @@ import UsersPage from "./Pages/UsersPage";
 import FormPage from "./Pages/FormPage";
 import SignupPage from "./Pages/SignupPage";
 import { logoutNowThunk } from "./Redux/auth/actions";
-
-// class React Router extra
-
-// const PurePrivateRoute = ({ component, isAuthenticated, ...rest }) => {
-//   const Component = component;
-//   if (Component != null) {
-//     return (
-//       <Route
-//         {...rest}
-//         render={(props) =>
-//           isAuthenticated ? (
-//             <Component {...props} />
-//           ) : (
-//             <Redirect
-//               to={{ pathname: "/login", state: { from: props.location } }}
-//             />
-//           )
-//         }
-//       />
-//     );
-//   } else {
-//     return null;
-//   }
-// };
-// const mapStateToProps = (state) => {
-//   return {
-//     isAuthenticated: state.authStore.isAuthenticated,
-//   };
-// };
-
-// const PrivateRoute = connect(mapStateToProps)(RequireAuth);
-// const mapStateToPropsApp = (state) => {
-//   return {
-//     isAuthenticated: state.authStore.isAuthenticated,
-//   };
-// };
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     logOutMDP: () => dispatch(logoutNowThunk()),
-//   };
-// };
-
-// export default connect(mapStateToPropsApp, mapDispatchToProps)(App);
-// make a class based version of this file??
-// requireAuth is functional and cannot be class based?
 
 function RequireAuth({ children, redirectTo }) {
   let isAuthenticated = useSelector((state) => state.authStore.isAuthenticated);
@@ -144,3 +99,61 @@ function App() {
 }
 
 export default App;
+
+// class React Router This implementatio broke in the last upgrade of React-Router-Dom v6 (for class routing with private routes please use v5 )
+
+// import React from "react";
+// import { Routes, BrowserRouter, Link, Route, Navigate } from "react-router-dom";
+// import { useDispatch, useSelector } from "react-redux";
+
+// import { Navbar, NavItem, Container } from "react-bootstrap";
+
+// import LoginPage from "./Pages/LoginPage";
+// import LinksPage from "./Pages/LinksPage";
+// import PeoplePage from "./Pages/PeoplePage";
+// import UsersPage from "./Pages/UsersPage";
+// import FormPage from "./Pages/FormPage";
+// import SignupPage from "./Pages/SignupPage";
+// import { logoutNowThunk } from "./Redux/auth/actions";
+
+// const PurePrivateRoute = ({ component, isAuthenticated, ...rest }) => {
+//   const Component = component;
+//   if (Component != null) {
+//     return (
+//       <Route
+//         {...rest}
+//         render={(props) =>
+//           isAuthenticated ? (
+//             <Component {...props} />
+//           ) : (
+//             <Redirect
+//               to={{ pathname: "/login", state: { from: props.location } }}
+//             />
+//           )
+//         }
+//       />
+//     );
+//   } else {
+//     return null;
+//   }
+// };
+// const mapStateToProps = (state) => {
+//   return {
+//     isAuthenticated: state.authStore.isAuthenticated,
+//   };
+// };
+
+// const PrivateRoute = connect(mapStateToProps)(RequireAuth);
+// const mapStateToPropsApp = (state) => {
+//   return {
+//     isAuthenticated: state.authStore.isAuthenticated,
+//   };
+// };
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     logOutMDP: () => dispatch(logoutNowThunk()),
+//   };
+// };
+
+// export default connect(mapStateToPropsApp, mapDispatchToProps)(App);

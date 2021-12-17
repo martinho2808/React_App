@@ -1,3 +1,55 @@
+// Hook based functional component :
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { signupThunk } from "../Redux/auth/actions";
+
+const Signup = (props) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const dispatch = useDispatch();
+
+  const signup = () => {
+    dispatch(signupThunk(email, password, username));
+  };
+
+  return (
+    <div>
+      <label>
+        Username:
+        <input
+          onChange={(e) => setUsername(e.currentTarget.value)}
+          type="text"
+          value={username}
+        />
+      </label>
+      <br />
+      <label>
+        Email:
+        <input
+          onChange={(e) => setEmail(e.currentTarget.value)}
+          type="text"
+          value={email}
+        />
+      </label>
+      <br />
+      <label>
+        Password:
+        <input
+          onChange={(e) => setPassword(e.currentTarget.value)}
+          type="text"
+          value={password}
+        />
+      </label>
+      <br />
+      <button onClick={signup}>Signup</button>
+    </div>
+  );
+};
+
+export default Signup;
+
+// Class based component
 // import React from "react";
 // import { connect } from "react-redux";
 // import { withRouter } from "react-router-dom";
@@ -87,54 +139,3 @@
 // };
 
 // export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Signup));
-
-// Hooks:
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { signupThunk } from "../Redux/auth/actions";
-
-const Signup = (props) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
-  const dispatch = useDispatch();
-
-  const signup = () => {
-    dispatch(signupThunk(email, password, username));
-  };
-
-  return (
-    <div>
-      <label>
-        Username:
-        <input
-          onChange={(e) => setUsername(e.currentTarget.value)}
-          type="text"
-          value={username}
-        />
-      </label>
-      <br />
-      <label>
-        Email:
-        <input
-          onChange={(e) => setEmail(e.currentTarget.value)}
-          type="text"
-          value={email}
-        />
-      </label>
-      <br />
-      <label>
-        Password:
-        <input
-          onChange={(e) => setPassword(e.currentTarget.value)}
-          type="text"
-          value={password}
-        />
-      </label>
-      <br />
-      <button onClick={signup}>Signup</button>
-    </div>
-  );
-};
-
-export default Signup;

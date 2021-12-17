@@ -1,3 +1,76 @@
+// Hook based functional component
+import FacebookLogin from "react-facebook-login";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { loginUserThunk, loginFacebookThunk } from "../Redux/auth/actions";
+import { useNavigate } from "react-router-dom";
+
+const Login = (props) => {
+  const [email, setEmail] = useState("Insert Email");
+  const [password, setPassword] = useState("Insert Password");
+  const auth = useSelector((state) => state.authStore.isAuthenticated);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log(auth);
+    if (auth === true) {
+      navigate("/users");
+    }
+  }, [auth, navigate]);
+
+  const login = () => {
+    dispatch(loginUserThunk(email, password));
+  };
+
+  function componentClicked() {
+    console.log("clicked");
+    return null;
+  }
+
+  function responseFacebook(userInfo) {
+    if (userInfo.accessToken) {
+      loginFacebookThunk(userInfo.accessToken);
+    }
+    return null;
+  }
+
+  return (
+    <div>
+      <label>
+        Email:
+        <input
+          onChange={(e) => setEmail(e.currentTarget.value)}
+          type="text"
+          value={email}
+        />
+      </label>
+      <br />
+      <label>
+        Password:
+        <input
+          onChange={(e) => setPassword(e.currentTarget.value)}
+          type="text"
+          value={password}
+        />
+      </label>
+      <br />
+      <button onClick={login}>Login</button>
+      {auth && <p>Login Successful!</p>}
+      <FacebookLogin
+        appId={process.env.REACT_APP_FACEBOOK_APP_ID || ""}
+        autoLoad={true}
+        fields="name,email,picture"
+        onClick={componentClicked}
+        callback={responseFacebook}
+      />
+    </div>
+  );
+};
+
+export default Login;
+
+// Class based component
 // import React from "react";
 // import { connect } from "react-redux";
 // import { loginUserThunk, loginFacebookThunk } from "../Redux/auth/actions";
@@ -100,75 +173,3 @@
 // };
 
 // export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
-
-// Hooks:
-import FacebookLogin from "react-facebook-login";
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { loginUserThunk, loginFacebookThunk } from "../Redux/auth/actions";
-import { useNavigate } from "react-router-dom";
-
-const Login = (props) => {
-  const [email, setEmail] = useState("Insert Email");
-  const [password, setPassword] = useState("Insert Password");
-  const auth = useSelector((state) => state.authStore.isAuthenticated);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    console.log(auth);
-    if (auth === true) {
-      navigate("/users");
-    }
-  }, [auth, navigate]);
-
-  const login = () => {
-    dispatch(loginUserThunk(email, password));
-  };
-
-  function componentClicked() {
-    console.log("clicked");
-    return null;
-  }
-
-  function responseFacebook(userInfo) {
-    if (userInfo.accessToken) {
-      loginFacebookThunk(userInfo.accessToken);
-    }
-    return null;
-  }
-
-  return (
-    <div>
-      <label>
-        Email:
-        <input
-          onChange={(e) => setEmail(e.currentTarget.value)}
-          type="text"
-          value={email}
-        />
-      </label>
-      <br />
-      <label>
-        Password:
-        <input
-          onChange={(e) => setPassword(e.currentTarget.value)}
-          type="text"
-          value={password}
-        />
-      </label>
-      <br />
-      <button onClick={login}>Login</button>
-      {auth && <p>Login Successful!</p>}
-      <FacebookLogin
-        appId={process.env.REACT_APP_FACEBOOK_APP_ID || ""}
-        autoLoad={true}
-        fields="name,email,picture"
-        onClick={componentClicked}
-        callback={responseFacebook}
-      />
-    </div>
-  );
-};
-
-export default Login;

@@ -1,3 +1,79 @@
+// Hook based functional component
+
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  CLEAR_LINKS,
+  AddLink,
+  DeleteLink,
+  loadLinkThunk,
+} from "../Redux/links/actions";
+
+export const LinkList = (props) => {
+  const [url, setUrl] = useState("Insert URL here");
+  const [title, setTitle] = useState("Insert Title here");
+
+  const linksFromRedux = useSelector((state) => state.linkStore.links);
+
+  const displayLinks = linksFromRedux.map((link, i) => (
+    <div key={i}>
+      {link.title} - {link.url}
+      <button
+        onClick={() => {
+          console.log(i);
+          deleteLink(i);
+        }}
+      >
+        Delete Link
+      </button>
+    </div>
+  ));
+
+  const dispatch = useDispatch();
+
+  const submitLink = (e) => {
+    e.preventDefault();
+    const newLink = {
+      title,
+      url,
+    };
+    dispatch(AddLink(newLink));
+    setUrl("Insert URL here");
+    setTitle("Insert Title here");
+  };
+
+  const clearLink = () => dispatch({ type: CLEAR_LINKS });
+  const deleteLink = (i) => {
+    console.log(i);
+    dispatch(DeleteLink(i));
+  };
+
+  return (
+    <>
+      <h3>Add Link</h3>
+      <input
+        type="text"
+        value={url}
+        onChange={(e) => setUrl(e.currentTarget.value)}
+      />
+      <br />
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.currentTarget.value)}
+      />
+      <br />
+      <button onClick={submitLink}> New Link</button>
+      <button onClick={clearLink}>Clear Links</button>
+      <button onClick={() => dispatch(loadLinkThunk())}>All Link API</button>
+
+      <h2>Links</h2>
+      {displayLinks}
+    </>
+  );
+};
+
+// Class based component
 // import React from "react";
 // import { connect } from "react-redux";
 // import {
@@ -111,76 +187,3 @@
 //   mapStateToProps,
 //   mapDispatchToProps
 // )(PureLinkList);
-
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  CLEAR_LINKS,
-  AddLink,
-  DeleteLink,
-  loadLinkThunk,
-} from "../Redux/links/actions";
-
-export const LinkList = (props) => {
-  const [url, setUrl] = useState("Insert URL here");
-  const [title, setTitle] = useState("Insert Title here");
-
-  const linksFromRedux = useSelector((state) => state.linkStore.links);
-
-  const displayLinks = linksFromRedux.map((link, i) => (
-    <div key={i}>
-      {link.title} - {link.url}
-      <button
-        onClick={() => {
-          console.log(i);
-          deleteLink(i);
-        }}
-      >
-        Delete Link
-      </button>
-    </div>
-  ));
-
-  const dispatch = useDispatch();
-
-  const submitLink = (e) => {
-    e.preventDefault();
-    const newLink = {
-      title,
-      url,
-    };
-    dispatch(AddLink(newLink));
-    setUrl("Insert URL here");
-    setTitle("Insert Title here");
-  };
-
-  const clearLink = () => dispatch({ type: CLEAR_LINKS });
-  const deleteLink = (i) => {
-    console.log(i);
-    dispatch(DeleteLink(i));
-  };
-
-  return (
-    <>
-      <h3>Add Link</h3>
-      <input
-        type="text"
-        value={url}
-        onChange={(e) => setUrl(e.currentTarget.value)}
-      />
-      <br />
-      <input
-        type="text"
-        value={title}
-        onChange={(e) => setTitle(e.currentTarget.value)}
-      />
-      <br />
-      <button onClick={submitLink}> New Link</button>
-      <button onClick={clearLink}>Clear Links</button>
-      <button onClick={() => dispatch(loadLinkThunk())}>All Link API</button>
-
-      <h2>Links</h2>
-      {displayLinks}
-    </>
-  );
-};

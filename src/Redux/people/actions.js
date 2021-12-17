@@ -17,6 +17,7 @@ export function AddPerson(person) {
 }
 
 // THUNK ACTION CREATOR
+// Due to http vs https error (react with fb is https and astros is http) we send this request for data to the backend to retrieve the information and then respond to our react with the right data
 export function spacePeopleSuccessAction(people) {
   return {
     type: SPACE_PEOPLE_SUCCESS_ACTION,
@@ -34,10 +35,10 @@ export function spacePeopleFailureAction() {
 export function loadSpacePeopleThunk() {
   return (dispatch) => {
     return axios
-      .get("http://api.open-notify.org/astros.json")
+      .get(`${process.env.REACT_APP_API_SERVER}/api/spacemen`)
       .then((response) => {
-        let information = response.data;
-        let people = information.people.map((person) => ({
+        console.log(response);
+        let people = response.data.map((person) => ({
           name: person.name,
           age: person.craft,
         }));
