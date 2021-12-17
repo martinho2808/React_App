@@ -50,7 +50,7 @@ export const LinkList = (props) => {
       {linksFromRedux.map((link, i) => (
         <div key={i}>
           {link.title} - {link.url}
-          <button onClick={(i) => deleteLink(i)}>Delete Link</button>
+          <button onClick={() => deleteLink(i)}>Delete Link</button>
         </div>
       ))}
     </>

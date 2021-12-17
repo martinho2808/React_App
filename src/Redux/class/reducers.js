@@ -11,13 +11,11 @@ export function studentReducer(state = initialState, action) {
         students: state.students.concat([action.payload]),
       };
     case DELETE_STUDENT:
-      console.log(action.payload, " <<<<<< action");
+      console.log(action.payload, " <<<<<< action, appears on users client ");
       // splice a new copy of the array
 
       return {
-        students: state.students.filter(
-          (student) => student !== action.payload
-        ),
+        students: state.students.filter((_, i) => i !== action.payload),
       };
     default:
       return state;

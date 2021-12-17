@@ -20,6 +20,7 @@ export function linkReducer(state = initialState, action) {
         links: [],
       };
     case DELETE_LINK:
+      console.log(action.payload, "<<<< reducer, appears on users client ");
       return {
         links: state.links.filter((link, index) => index !== action.payload),
       };

@@ -19,3 +19,4 @@ export function peopleReducer(state = initialState, action) {
       return state;
   }
 }
+
