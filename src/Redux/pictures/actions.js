@@ -7,6 +7,7 @@ export const ADD_IMAGE_SUCCESS = "ADD_IMAGE_SUCCESS";
 export const DELETE_IMAGE = "DELETE_IMAGE";
 
 export function DeleteImage(i) {
+  console.log("sending to reducer ");
   return {
     type: DELETE_IMAGE,
     payload: i,

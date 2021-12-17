@@ -10,7 +10,7 @@ let storedPeople = JSON.parse(localStorage.getItem("People"));
 console.log(typeof storedPeople);
 console.log(storedPeople);
 
-if (typeof storedPeople === "object" && storedPeople.length === 0) {
+if (typeof storedPeople === "object" && storedPeople === null) {
   console.log("HERE");
   storedPeople = [
     { name: "Jasmine", age: 16 },

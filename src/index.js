@@ -24,6 +24,7 @@ import { LOAD_LINK_SUCCESS_ACTION } from "./Redux/links/actions";
 //     payload: redditLinks,
 //   });
 // });
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
