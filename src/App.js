@@ -289,7 +289,7 @@ export default App;
 
 // import { FunctionalComponent } from "./components/FunctionalComponent.jsx";
 // import Counter from "./components/Counter.jsx";
-
+// import BootstrapCard from "./BootstrapCard.js";
 // const App = () => {
 //   return (
 //     <div className="App">
@@ -307,6 +307,7 @@ export default App;
 //           Learn React
 //         </a>
 //       </header>
+//         <BootstrapCard />
 //       <Element age="99" name="Sam's World"></Element>
 //       <BootstrapElement buttonLabel="Click me" />
 //       <StatefulComponent />
