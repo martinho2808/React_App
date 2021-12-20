@@ -1,3 +1,57 @@
+// Hooks:
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { loginUserThunk } from "../Redux/auth/actions";
+import { useNavigate } from "react-router";
+
+const Login = (props) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const isAuthenticated = useSelector(
+    (state) => state.authStore.isAuthenticated
+  );
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated === true) {
+      navigate("/users");
+    }
+  }, []);
+
+  const login = () => {
+    dispatch(loginUserThunk(email, password));
+  };
+
+  return (
+    <div>
+      <label>
+        Username:
+        <input
+          onChange={(e) => setEmail(e.currentTarget.value)}
+          type="text"
+          value={email}
+        />
+      </label>
+      <br />
+      <label>
+        Password:
+        <input
+          onChange={(e) => setPassword(e.currentTarget.value)}
+          type="text"
+          value={password}
+        />
+      </label>
+      <br />
+      <button onClick={login}>Login</button>
+      {isAuthenticated && <p>Login Successful!</p>}
+    </div>
+  );
+};
+
+export default Login;
+
+// class
 // import React from "react";
 // import { connect } from "react-redux";
 // import { loginUserThunk } from "../Redux/auth/actions";
@@ -80,56 +134,3 @@
 // };
 
 // export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
-
-// Hooks:
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { loginUserThunk } from "../Redux/auth/actions";
-import { useNavigate } from "react-router";
-
-const Login = (props) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const isAuthenticated = useSelector(
-    (state) => state.authStore.isAuthenticated
-  );
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (isAuthenticated === true) {
-      navigate("/users");
-    }
-  }, []);
-
-  const login = () => {
-    dispatch(loginUserThunk(email, password));
-  };
-
-  return (
-    <div>
-      <label>
-        Username:
-        <input
-          onChange={(e) => setEmail(e.currentTarget.value)}
-          type="text"
-          value={email}
-        />
-      </label>
-      <br />
-      <label>
-        Password:
-        <input
-          onChange={(e) => setPassword(e.currentTarget.value)}
-          type="text"
-          value={password}
-        />
-      </label>
-      <br />
-      <button onClick={login}>Login</button>
-      {isAuthenticated && <p>Login Successful!</p>}
-    </div>
-  );
-};
-
-export default Login;

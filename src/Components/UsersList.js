@@ -1,3 +1,27 @@
+// Hooks:
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getUser } from "../Redux/user/actions";
+
+const UsersPage = () => {
+  const users = useSelector((state) => state.userStore.user);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
+  console.log(users);
+  return (
+    <div>
+      <h1>Welcome to the user page</h1>
+      <p>Well done for getting this far.</p>
+      <ul>{users && users.map((user, i) => <li key={i}>{user.name}</li>)}</ul>
+    </div>
+  );
+};
+
+export default UsersPage;
+
+// class
 // import React from "react";
 // import { connect } from "react-redux";
 // import { getUser } from "../Redux/user/actions";
@@ -35,26 +59,3 @@
 // };
 
 // export default connect(mapStateToProps, mapDispatchToProps)(UsersPage);
-
-// Hooks:
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getUser } from "../Redux/user/actions";
-
-const UsersPage = () => {
-  const users = useSelector((state) => state.userStore.user);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getUser());
-  }, [dispatch]);
-  console.log(users);
-  return (
-    <div>
-      <h1>Welcome to the user page</h1>
-      <p>Well done for getting this far.</p>
-      <ul>{users && users.map((user, i) => <li key={i}>{user.name}</li>)}</ul>
-    </div>
-  );
-};
-
-export default UsersPage;
