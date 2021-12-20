@@ -1,4 +1,4 @@
-// Hook based functinal component 
+// Hook based functinal component
 import { ThemeProvider, makeStyles } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import Theme from "./Theme.js";
