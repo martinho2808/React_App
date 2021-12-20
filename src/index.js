@@ -11,20 +11,20 @@ import AppCovid from "./AppCovid.js";
 
 import { BrowserRouter } from "react-router-dom";
 
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById("root")
-// );
-
-// Uncomment below block and comment out above for day54.
 ReactDOM.render(
-  <BrowserRouter>
-    <AppExercise54 />
-  </BrowserRouter>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById("root")
 );
+
+// Uncomment below block and comment out above for day54.
+// ReactDOM.render(
+//   <BrowserRouter>
+//     <AppExercise54 />
+//   </BrowserRouter>,
+//   document.getElementById("root")
+// );
 
 // Uncomment below block and comment out above for Covid Day 54 - the backend is in a separate repo
 // BACKEND LINK EXAMPLE:
