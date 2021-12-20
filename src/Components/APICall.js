@@ -1,57 +1,4 @@
-// import React from "react";
-// import axios from "axios";
-
-// export default class GetPokemon extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       name: null,
-//       image: null,
-//     };
-//   }
-
-//   getThatPokemon = () => {
-//     fetch(`https://pokeapi.co/api/v2/pokemon/${this.props.pokemon}`)
-//       .then((res) => res.json())
-//       .then(
-//         (result) => {
-//           this.setState({
-//             name: result.name,
-//             image: result.sprites.front_default,
-//           });
-//         },
-//         (error) => {
-//           console.log(error);
-//         }
-//       );
-//   };
-
-// Axios Version
-//   getThatPokemon = () => {
-//     axios.get(`https://pokeapi.co/api/v2/pokemon/${this.props.pokemon}`).then(
-//       (result) => {
-//         this.setState({
-//           name: result.data.name,
-//           image: result.data.sprites.front_default,
-//         });
-//       },
-//       (error) => {
-//         console.log(error);
-//       }
-//     );
-//   };
-
-//   render() {
-//     return (
-//       <>
-//         <button onClick={this.getThatPokemon}>Get Information</button>
-//         <h2>Information about this Pokemon: {this.props.pokemon}</h2>
-//         <p>{this.state.name}</p>
-//         <img src={this.state.image} alt="pokemon" />
-//       </>
-//     );
-//   }
-// }
+// Functional hook based component
 import { useState } from "react";
 
 export default function GetPokemon(props) {
@@ -85,3 +32,70 @@ export default function GetPokemon(props) {
     </>
   );
 }
+
+// Class based component
+// import React from "react";
+// import axios from "axios";
+
+// export default class GetPokemon extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       name: null,
+//       image: null,
+//     };
+//   }
+
+//   // fetch version
+//   // getThatPokemon = () => {
+//   //   fetch(`https://pokeapi.co/api/v2/pokemon/${this.props.pokemon}`)
+//   //     .then((res) => res.json())
+//   //     .then(
+//   //       (result) => {
+//   //         this.setState({
+//   //           name: result.name,
+//   //           image: result.sprites.front_default,
+//   //         });
+//   //       },
+//   //       (error) => {
+//   //         console.log(error);
+//   //       }
+//   //     );
+//   // };
+
+//   // Axios Version
+//   getThatPokemon = () => {
+//     axios.get(`https://pokeapi.co/api/v2/pokemon/${this.props.pokemon}`).then(
+//       (result) => {
+//         this.setState({
+//           name: result.data.name,
+//           image: result.data.sprites.front_default,
+//         });
+//       },
+//       (error) => {
+//         console.log(error);
+//       }
+//     );
+//   };
+
+//   // to get the pokemon on load, uncomment this block
+//   // componentDidMount() {
+//   //   this.getThatPokemon();
+//   // }
+
+//   componentDidUpdate() {
+//     console.log("updating");
+//     console.log(this.state.name);
+//   }
+
+//   render() {
+//     return (
+//       <>
+//         <button onClick={this.getThatPokemon}>Get Information</button>
+//         <h2>Information about this Pokemon: {this.props.pokemon}</h2>
+//         <p>{this.state.name}</p>
+//         <img src={this.state.image} alt="pokemon" />
+//       </>
+//     );
+//   }
+// }

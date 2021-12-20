@@ -1,63 +1,64 @@
-// Class based timer component
+// Hook based timer component
+import { useState, useEffect } from "react";
 
-import React from "react";
+export default function Timer(props) {
+  const [elapsed, setElapsed] = useState(0);
+  let startTime;
+  let timer = {};
 
-export default class Timer extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      elapsed: 0,
-    };
-  }
-
-  componentDidMount() {
-    this.startTime = Date.now();
-    this.timer = setInterval(this.tick, 1);
-  }
-
-  tick = () => {
-    this.setState({
-      elapsed: Date.now() - this.startTime,
-    });
+  const tick = () => {
+    setElapsed(Date.now() - startTime);
   };
 
-  componentWillUnmount() {
-    clearInterval(this.timer);
-  }
+  // acts as all lifecycle methods, component did mount, component did update and componentwillunmount.
+  useEffect(() => {
+    startTime = Date.now();
+    timer = setInterval(tick, 1);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
 
-  render() {
-    return (
-      <>
-        <p>Time Elapsed: {(this.state.elapsed / 1000).toFixed(3)}s</p>
-      </>
-    );
-  }
+  return (
+    <>
+      <p>Time Elapsed: {(elapsed / 1000).toFixed(3)}s</p>
+    </>
+  );
 }
 
-// import { useState, useEffect } from "react";
+// Class based timer component
 
-// export default function Timer(props) {
-//   const [elapsed, setElapsed] = useState(0);
-//   let startTime;
-//   let timer = {};
+// import React from "react";
 
-//   const tick = () => {
-//     setElapsed(Date.now() - startTime);
+// export default class Timer extends React.Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.state = {
+//       elapsed: 0,
+//     };
+//   }
+
+//   componentDidMount() {
+//     this.startTime = Date.now();
+//     this.timer = setInterval(this.tick, 1);
+//   }
+
+//   tick = () => {
+//     this.setState({
+//       elapsed: Date.now() - this.startTime,
+//     });
 //   };
 
-//   // acts as all lifecycle methods, component did mount, component did update and componentwillunmount.
-//   useEffect(() => {
-//     startTime = Date.now();
-//     timer = setInterval(tick, 1);
-//     return () => {
-//       clearInterval(timer);
-//     };
-//   }, []);
+//   componentWillUnmount() {
+//     clearInterval(this.timer);
+//   }
 
-//   return (
-//     <>
-//       <p>Time Elapsed: {(elapsed / 1000).toFixed(3)}s</p>
-//     </>
-//   );
+//   render() {
+//     return (
+//       <>
+//         <p>Time Elapsed: {(this.state.elapsed / 1000).toFixed(3)}s</p>
+//       </>
+//     );
+//   }
 // }

@@ -1,36 +1,3 @@
-// import React from "react";
-// import InputForm from "./InputForm";
-
-// export default class ShoppingList extends React.Component {
-//   constructor(props) {
-//     super(props);
-
-//     this.state = {
-//       list: this.props.list,
-//     };
-//   }
-
-//   addItem = (item) => {
-//     const list = [...this.state.list, item];
-//     this.setState({
-//       list: list,
-//     });
-//   };
-
-//   render() {
-//     const shoppingListItems = this.state.list.map((listItem, i) => (
-//       <div key={i}>{listItem.item}</div>
-//     ));
-//     return (
-//       <>
-//         <InputForm label="Shopping items" addItemProp={this.addItem} />
-//         <h3>Shopping List for {this.props.name}</h3>
-//         {shoppingListItems}
-//       </>
-//     );
-//   }
-// }
-
 // Functional Hook based version
 
 import { useState } from "react";
@@ -55,6 +22,41 @@ export default function ShoppingList(props) {
       {shoppingListItems}
     </>
   );
+
+  // class based component
+
+  // import React from "react";
+  // import InputForm from "./InputForm";
+
+  // export default class ShoppingList extends React.Component {
+  //   constructor(props) {
+  //     super(props);
+
+  //     this.state = {
+  //       list: this.props.list,
+  //     };
+  //   }
+
+  //   addItem = (item) => {
+  //     const list = [...this.state.list, item];
+  //     this.setState({
+  //       list: list,
+  //     });
+  //   };
+
+  //   render() {
+  //     const shoppingListItems = this.state.list.map((listItem, i) => (
+  //       <div key={i}>{listItem.item}</div>
+  //     ));
+  //     return (
+  //       <>
+  //         <InputForm label="Shopping items" addItemProp={this.addItem} />
+  //         <h3>Shopping List for {this.props.name}</h3>
+  //         {shoppingListItems}
+  //       </>
+  //     );
+  //   }
+  // }
 }
 
 // Shopping Lists Legacy - no ability to add items, just display prop values

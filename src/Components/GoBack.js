@@ -1,24 +1,3 @@
-// import React from "react";
-// import { withRouter } from "react-router-dom";
-
-// class GoBack extends React.Component {
-//   goBack = () => {
-//     this.props.history.goBack();
-//   };
-//   render() {
-//     return (
-//       <div>
-//         <button className="btn btn-primary" onClick={this.goBack}>
-//           Go Back
-//         </button>
-//       </div>
-//     );
-//   }
-// }
-// export default GoBack = withRouter(GoBack);
-
-// With router class based doent work in React router dom anymore. 
-
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { useEffect } from "react";
@@ -28,6 +7,7 @@ const GoBack = () => {
 
   useEffect(() => {
     console.log(navigate);
+    console.log("Navigate back -1");
   });
 
   const back = () => {
@@ -44,3 +24,28 @@ const GoBack = () => {
 };
 
 export default GoBack;
+
+// class based code does not work within React Router Dom v6 Therefore the code below doenst work at the moment
+// import React from "react";
+// import { withRouter } from "react-router-dom";
+// import { Button } from "react-bootstrap";
+
+// class GoBack extends React.Component {
+//   goBack = () => {
+//     this.props.history.goBack();
+//   };
+//   render() {
+//     return (
+//       <div>
+//         <Button variant="primary" onClick={this.goBack}>
+//           Go Back
+//         </Button>
+//       </div>
+//     );
+//   }
+// }
+// export default GoBack = withRouter(GoBack);
+
+// https://github.com/remix-run/react-router/issues/7256
+// https://stackoverflow.com/questions/62365009/how-to-get-parameter-value-from-react-router-dom-v6-in-class
+// https://reacttraining.com/blog/react-router-v5-1/

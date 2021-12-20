@@ -1,3 +1,4 @@
+// Can only be hooks as we use both useState and useEffect
 import { useState, useEffect } from "react";
 
 export default function Top() {

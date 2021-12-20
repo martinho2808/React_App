@@ -6,7 +6,7 @@
 // $secondaryText: #a9cef4;
 // $tertiaryText: #df52bc;
 
-@import "./partials";
+@import "./_partials";
 
 // %flex-center {
 //   display: flex;
@@ -14,13 +14,17 @@
 //   justify-content: center;
 // }
 
+.test {
+  background-color: $secondaryBackground;
+}
+
 .linkStyle {
   margin: 20px;
   font-weight: bold;
   color: $secondaryText;
 }
 
-.body {
+.App {
   background-color: $tertiaryBackground;
   height: 100vh;
 }
@@ -43,7 +47,7 @@
   background-color: #462fd8;
   margin: 20px;
   p {
-    color: #ff0000bb
+    color: #ff0000bb;
   }
 }
 
