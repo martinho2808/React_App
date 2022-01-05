@@ -14,26 +14,23 @@ import App1 from "./App1";
 //   </div>
 // );
 
-// ReactDOM.render(
-//   element,
-//   document.getElementById("root")
-// );
+// ReactDOM.render(element, document.getElementById("root"));
 
 // rendering the App to the dom
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
-
-// // un comment below for JSX elements within App1
 // ReactDOM.render(
 //   <React.StrictMode>
-//     <App1 />
+//     <App />
 //   </React.StrictMode>,
 //   document.getElementById("root")
 // );
+
+// // un comment below for JSX elements within App1
+ReactDOM.render(
+  <React.StrictMode>
+    <App1 />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
 
 // // code to implement the JSX element within the React application.
 

@@ -1,17 +1,19 @@
 import logo from "./logo.svg";
 import "./App.css";
 
+import React from "react";
+
 // uncomment blocks below to see React usage
 
 // element
-let data = (
+let element = (
   <div>
     <h1>I am a Element</h1>
   </div>
 );
 
-// Component with bootstrap css applied
-function Element() {
+// Functional Component with bootstrap css applied
+function NotAElement() {
   return (
     <div>
       <h3 className="text-secondary">Hello Class</h3>
@@ -20,8 +22,29 @@ function Element() {
   );
 }
 
+// class based component
+class NotAElementClass extends React.Component {
+  render() {
+    return (
+      <div>
+        <h3 className="text-secondary">Hello Class in a class </h3>
+        <p className="text-danger">JSX</p>
+      </div>
+    );
+  }
+}
+
+const Testing = (
+  <div>
+    <h1>Testing element</h1>
+    <p>I am JSX</p>
+  </div>
+);
+
 // Base Functional Application, functional components are great for displaying data
 function App() {
+  let name = "am";
+  let age = 28 + 1;
   // let logo = false;
   return (
     <div className="App">
@@ -30,9 +53,15 @@ function App() {
         <p className="text-danger">
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        {Testing}
+        {name == "sam" ? name : "HE is not sam."}
+
+        {age}
         {/* Using elements */}
-        <Element></Element>
-        <Element />
+        <NotAElement></NotAElement>
+        <NotAElement />
+        <NotAElementClass />
+        <button className="btn btn-danger">Hello</button>
         {/* Uncomment for another logo */}
         {/* {logo ? (
           <img src={logo} className="App-logo" alt="logo" />
