@@ -2,20 +2,22 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import App2 from "./App2";
+
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css"; // this allows the css of bootstrap to be used throughout my whole application
 import AppExercise from "./AppExercise.js";
 
 // code to render the app to the screen
-// ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App2 />, document.getElementById("root"));
 
 // uncomment below and comment out above for exercises
-ReactDOM.render(
-  <React.StrictMode>
-    <AppExercise />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <AppExercise />
+//   </React.StrictMode>,
+//   document.getElementById("root")
+// );
 
 // code to implement the JSX element within the React application.
 // import ReactDOM from "react-dom";

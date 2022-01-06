@@ -17,43 +17,52 @@ function Counter(props) {
 
 export default Counter;
 
-// class based code
 // import React from "react";
 
 // class Counter extends React.Component {
 //   constructor(props) {
 //     super(props);
-
 //     this.state = {
+//       name: "",
 //       count: 0,
 //     };
-
-//     this.incrementCount = this.incrementCount.bind(this);
 //   }
 
-//   incrementCount() {
-//     console.log(this);
+//   incrementCount = () => {
 //     this.setState({
 //       count: this.state.count + 1,
-//     });
-//   }
-
-//   decrementCount = () => {
-//     console.log(this);
-//     this.setState({
-//       count: this.state.count - 1,
 //     });
 //   };
 
 //   render() {
 //     return (
 //       <>
-//         <h1> Counter for {this.props.name} </h1>
-//         <div>
-//           <button onClick={this.incrementCount}>+</button>
-//           <button onClick={this.decrementCount}>-</button>
-//         </div>
-//         <h4>{this.state.count}</h4>
+//         <h3>
+//           {this.state.name !== "" ? this.state.name : this.props.name}'s Counter
+//         </h3>
+//         {this.state.count}
+//         <input
+//           type="text"
+//           value={this.state.name}
+//           onChange={(e) =>
+//             this.setState({
+//               name: e.target.value,
+//             })
+//           }
+//         />
+//         <button className="btn btn-primary" onClick={this.incrementCount}>
+//           +
+//         </button>
+//         <button
+//           className="btn btn-danger"
+//           onClick={() =>
+//             this.setState({
+//               count: this.state.count - 1,
+//             })
+//           }
+//         >
+//           -
+//         </button>
 //       </>
 //     );
 //   }
