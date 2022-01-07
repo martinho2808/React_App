@@ -14,6 +14,7 @@ export default function Timer(props) {
   useEffect(() => {
     startTime = Date.now();
     timer = setInterval(tick, 1);
+    console.log("timer timer");
     return () => {
       clearInterval(timer);
     };

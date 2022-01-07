@@ -43,6 +43,8 @@ const App = () => {
     { label: "Write tests", status: "done" },
     { label: "Sent report", status: "progress" },
     { label: "Answer emails", status: "done" },
+    { label: "Feed dogs", status: "done" },
+    { label: "Mark Group 2 projects", status: "progress" },
   ];
 
   var isCompleted = (todo) => todo.status === "done";
