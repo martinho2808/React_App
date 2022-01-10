@@ -4,6 +4,7 @@ import Profile from "./Profile.js";
 import Welcome from "./Welcome.js";
 import UserProfile from "./UserProfile.js";
 import EditUserProfile from "./EditProfile.js";
+import GoBack from './GoBack.js'
 
 function App() {
   const link = {
@@ -26,6 +27,8 @@ function App() {
         <Link style={link} to="/profile">
           Profile
         </Link>
+    <GoBack />
+
       </nav>
       <div>
         <h4>Part of landing page</h4>

@@ -14,6 +14,7 @@ export default function Profile(props) {
           <Link to={`seeProfile`}>See Profile</Link>
         </li>
       </ul>
+      <div>Click on the items above to find the correct page</div>
       <Outlet />
     </div>
   );
