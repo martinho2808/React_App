@@ -9,9 +9,17 @@ const CovidPage = () => {
       const { data } = await axios.get(
         `${process.env.REACT_APP_API_SERVER}/api/covid`
       );
+      setPropsList(data);
     }
     fetchData();
     console.log("running");
+
+    async function callAPI() {
+      const info = await axios.get(`${process.env.REACT_APP_API_SERVER}/`);
+      console.log(info);
+    }
+
+    callAPI();
   }, []);
 
   return (
