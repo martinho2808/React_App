@@ -18,6 +18,8 @@ export function ClearLinks() {
   };
 }
 export function AddLink(link) {
+  console.log(Date.now(), "action");
+
   // action
   return {
     type: ADD_LINK,
@@ -51,17 +53,30 @@ export function loadLinkFailureAction() {
 // Thunk Action called in component
 
 export function loadLinkThunk() {
+  console.log(Date.now(), "thunk action");
+
   console.log("thunk action api call");
   return (dispatch) => {
+    // async
     return axios
       .get("https://www.reddit.com/r/programming.json")
       .then((response) => {
-        console.log("after api call");
+        // https://restcountries.com/v3.1/region/europe
+        // console.log("after api call");
+        // console.log(response);
+        // let links = response.data.map((info) => ({
+        //   title: info.capital[0],
+        //   url: info.population,
+        // }));
+        // console.log(links);
+
+        // reddit call data processing
         let threads = response.data;
         let links = threads.data.children.map((link) => ({
           title: link.data.title,
           url: link.data.url,
         }));
+        // start the sync request
         dispatch(loadLinkSuccessAction(links));
       })
       .catch((error) => {
@@ -70,3 +85,5 @@ export function loadLinkThunk() {
       });
   };
 }
+
+//"https://www.reddit.com/r/programming.json"

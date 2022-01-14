@@ -30,6 +30,7 @@ export function getImageThunk(params) {
         `https://api.unsplash.com/search/photos/?query=${params.searched}&client_id=${process.env.REACT_APP_UNSPLASHED_KEY}`
       )
       .then((response) => {
+        console.log(response);
         let information = response.data.results;
         let firstImage = information[0].urls.regular;
         const image = {

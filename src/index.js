@@ -4,7 +4,6 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./Redux/store";
 import { Provider } from "react-redux";
-import { LOAD_LINK_SUCCESS_ACTION } from "./Redux/links/actions";
 
 // Fastest way of doing things, not necessarily the conventional way , dispatch an action to the store before components are meant to mount
 

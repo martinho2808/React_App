@@ -24,6 +24,8 @@ const initialState = {
 export function linkReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_LINK:
+      console.log(Date.now(), "reducer");
+
       return {
         links: state.links.concat([action.payload]),
         loading: false,
@@ -39,6 +41,8 @@ export function linkReducer(state = initialState, action) {
         loading: false,
       };
     case LOAD_LINK_SUCCESS_ACTION:
+      console.log(Date.now(), "reducer, thunk");
+
       return {
         links: state.links.concat([...action.payload]),
         loading: false,

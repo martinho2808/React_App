@@ -16,6 +16,8 @@ export function PictureList() {
       searched,
     };
     dispatch(getImageThunk(image));
+    setTitle("");
+    setSearched("");
   }
 
   return (

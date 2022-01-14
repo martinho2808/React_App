@@ -11,6 +11,7 @@ import {
 export const LinkList = (props) => {
   const [url, setUrl] = useState("Insert URL here");
   const [title, setTitle] = useState("Insert Title here");
+  const [link, setLink] = useState("Insert Link to call here");
 
   const linksFromRedux = useSelector((state) => state.linkStore.links);
 
@@ -31,6 +32,7 @@ export const LinkList = (props) => {
   const dispatch = useDispatch();
 
   const submitLink = (e) => {
+    console.log(Date.now(), "component");
     e.preventDefault();
     const newLink = {
       title,
@@ -64,7 +66,20 @@ export const LinkList = (props) => {
       <br />
       <button onClick={submitLink}> New Link</button>
       <button onClick={clearLink}>Clear Links</button>
-      <button onClick={() => dispatch(loadLinkThunk())}>All Link API</button>
+      <button
+        onClick={() => {
+          console.log(Date.now(), "component");
+
+          dispatch(loadLinkThunk());
+        }}
+      >
+        All Link API
+      </button>
+      <input
+        type="text"
+        value={link}
+        onChange={(e) => setLink(e.currentTarget.value)}
+      />
 
       <h2>Links</h2>
       {displayLinks}
