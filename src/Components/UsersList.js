@@ -1,24 +1,29 @@
 // Hook based functional component:
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getUser } from "../Redux/user/actions";
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { getUser } from '../Redux/user/actions'
 
 const UsersPage = () => {
-  const { users } = useSelector((state) => state.userStore.user);
-  const dispatch = useDispatch();
+  const users = useSelector(state => state.userStore.user)
+  const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getUser());
-  }, []);
+    dispatch(getUser())
+    console.log(users)
+  }, [])
   return (
     <div>
       <h1>Welcome to the user page</h1>
       <p>Well done for getting this far.</p>
-      <ul>{users && users.map((user, i) => <li key={i}>{user.name}</li>)}</ul>
+      <ul>
+        {users && users.length >= 1
+          ? users.map((user, i) => <li key={i}>{user.name}</li>)
+          : null}
+      </ul>
     </div>
-  );
-};
+  )
+}
 
-export default UsersPage;
+export default UsersPage
 
 // import React from "react";
 // import { connect } from "react-redux";

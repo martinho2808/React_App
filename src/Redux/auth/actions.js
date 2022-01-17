@@ -86,7 +86,6 @@ export function loginFacebookThunk(data) {
         info: data,
       })
       .then((response) => {
-        console.log("here -- ", response.data.token);
         if (response.data == null) {
           dispatch(loginFailureActionCreator("Unknown Error"));
         } else if (!response.data.token) {

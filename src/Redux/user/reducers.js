@@ -1,17 +1,18 @@
-import { USER_GET_SUCCESS, USER_GET_FAILURE } from "./actions";
+import { USER_GET_SUCCESS, USER_GET_FAILURE } from './actions'
 
 const initialState = {
-  user: [{ name: "Sam" }],
-};
+  user: [{ name: 'Sam' }, { name: 'Tim' }]
+}
 
-export function userReducer(state = initialState, action) {
+export function userReducer (state = initialState, action) {
   switch (action.type) {
     case USER_GET_SUCCESS:
-      return { user: action.payload };
+      console.log(action.payload, 'from reducer')
+      return { user: action.payload }
 
     case USER_GET_FAILURE:
-      return state;
+      return state
     default:
-      return state;
+      return state
   }
 }
