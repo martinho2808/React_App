@@ -31,7 +31,7 @@ const Login = (props) => {
   function responseFacebook(userInfo) {
     console.log("response", userInfo);
     if (userInfo.accessToken) {
-      dispatch(loginFacebookThunk(userInfo.accessToken));
+      dispatch(loginFacebookThunk(userInfo));
     }
     return null;
   }
@@ -60,7 +60,7 @@ const Login = (props) => {
       {auth && <p>Login Successful!</p>}
       <FacebookLogin
         appId={process.env.REACT_APP_FACEBOOK_APP_ID || ""}
-        autoLoad={true}
+        autoLoad={false}
         fields="name,email,picture"
         onClick={componentClicked}
         callback={responseFacebook}

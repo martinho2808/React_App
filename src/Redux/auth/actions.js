@@ -33,6 +33,8 @@ export const signupThunk = (email, password, name) => async (dispatch) => {
     const { data } = response;
     console.log("request sent");
     console.log(data);
+    localStorage.setItem("token", data.token);
+    dispatch({ type: LOGIN_SUCCESS_ACTION });
   } catch (err) {
     console.log(err);
   }
@@ -76,12 +78,12 @@ export const logoutNowThunk = () => (dispatch) => {
   dispatch({ type: LOGOUT_NOW_ACTION });
 };
 
-export function loginFacebookThunk(accessToken) {
+export function loginFacebookThunk(data) {
   console.log("thunk thunk thunk ");
   return (dispatch) => {
     return axios
       .post(`${process.env.REACT_APP_API_SERVER}/api/login/facebook`, {
-        access_token: accessToken,
+        info: data,
       })
       .then((response) => {
         console.log("here -- ", response.data.token);

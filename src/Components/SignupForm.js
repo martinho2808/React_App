@@ -1,17 +1,30 @@
 // Hook based functional component :
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { signupThunk } from "../Redux/auth/actions";
+import { useNavigate } from "react-router-dom";
 
 const Signup = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const isAuthenticated = useSelector(
+    (state) => state.authStore.isAuthenticated
+  );
 
   const signup = () => {
     dispatch(signupThunk(email, password, username));
+    // send user to login page
   };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/users");
+    }
+  }, [isAuthenticated]);
 
   return (
     <div>
