@@ -29,8 +29,9 @@ const Login = (props) => {
   }
 
   function responseFacebook(userInfo) {
+    console.log("response", userInfo);
     if (userInfo.accessToken) {
-      loginFacebookThunk(userInfo.accessToken);
+      dispatch(loginFacebookThunk(userInfo.accessToken));
     }
     return null;
   }

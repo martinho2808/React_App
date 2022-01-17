@@ -37,14 +37,18 @@ function App() {
               <Link to="/links">Links</Link>
             </NavItem>
             <NavItem>
-              <Link to="/login">Login</Link>
-            </NavItem>
-            <NavItem>
               <Link to="/form">Form</Link>
             </NavItem>
-            <NavItem>
-              <Link to="/signup">Signup</Link>
-            </NavItem>
+            {isAuthenticated ? null : (
+              <NavItem>
+                <Link to="/login">Login</Link>
+              </NavItem>
+            )}
+            {isAuthenticated ? null : (
+              <NavItem>
+                <Link to="/signup">Signup</Link>
+              </NavItem>
+            )}
 
             {isAuthenticated ? (
               <button onClick={() => dispatch(logoutNowThunk())}>Logout</button>

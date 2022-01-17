@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getUser } from "../Redux/user/actions";
 
 const UsersPage = () => {
-  const { users } = useSelector((state) => state.user);
+  const { users } = useSelector((state) => state.userStore.user);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUser());

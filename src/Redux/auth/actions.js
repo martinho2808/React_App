@@ -77,12 +77,14 @@ export const logoutNowThunk = () => (dispatch) => {
 };
 
 export function loginFacebookThunk(accessToken) {
+  console.log("thunk thunk thunk ");
   return (dispatch) => {
     return axios
       .post(`${process.env.REACT_APP_API_SERVER}/api/login/facebook`, {
         access_token: accessToken,
       })
       .then((response) => {
+        console.log("here -- ", response.data.token);
         if (response.data == null) {
           dispatch(loginFailureActionCreator("Unknown Error"));
         } else if (!response.data.token) {
