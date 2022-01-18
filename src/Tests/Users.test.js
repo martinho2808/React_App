@@ -42,32 +42,32 @@
 //   });
 // });
 
-import { rest } from "msw";
-import { setupServer } from "msw/node";
-import UsersPage from "../Components/UsersList";
-import { render, screen, waitFor } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { store } from "../Redux/store.js";
+import { rest } from 'msw'
+import { setupServer } from 'msw/node'
+import UsersPage from '../Components/UsersList'
+import { render, screen, waitFor } from '@testing-library/react'
+import { Provider } from 'react-redux'
+import { store } from '../Redux/store.js'
 
 const server = setupServer(
   rest.get(`${process.env.REACT_APP_API_SERVER}/api/user/`, (req, res, ctx) => {
-    return res(ctx.json([{ name: "ftwd1" }, { name: "ftwd2" }]));
+    return res(ctx.json([{ name: 'ftwd1' }, { name: 'ftwd2' }]))
   })
-);
+)
 
-beforeAll(() => server.listen());
-afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
+beforeAll(() => server.listen())
+afterEach(() => server.resetHandlers())
+afterAll(() => server.close())
 
-describe("<UsersPage />", () => {
-  it("can show user names asynchronously", async () => {
+describe('<UsersPage />', () => {
+  it('can show user names asynchronously', async () => {
     render(
       <Provider store={store}>
         <UsersPage />
       </Provider>
-    );
-    expect(screen.queryByText(/ftwd/i)).toBeFalsy();
-    await waitFor(() => screen.getAllByText(/ftwd/i));
-    expect(screen.getAllByText(/ftwd/i).length).toEqual(2);
-  });
-});
+    )
+    expect(screen.queryByText(/ftwd/i)).toBeFalsy()
+    await waitFor(() => screen.getAllByText(/ftwd/i))
+    expect(screen.getAllByText(/ftwd/i).length).toEqual(2)
+  })
+})
