@@ -15,7 +15,11 @@
 // }
 
 .test {
+  @extend %flex-center;
   background-color: $secondaryBackground;
+  color: $secondaryText;
+  font-size: 10em;
+  height: 60vh;
 }
 
 .linkStyle {
