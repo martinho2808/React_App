@@ -1,23 +1,23 @@
 // Functional based Counter linked to leaderboard
 
-export default function Counter(props) {
+export default function Counter (props) {
   return (
-    <>
+    <div key={props.i}>
       <h4>
-        {props.name === "" ? "Counter" : props.name + "'s Counter"} :{" "}
+        {props.name === '' ? 'Counter' : props.name + "'s Counter"} :{' '}
         {props.count}
       </h4>
-      <button className="btn btn-success" onClick={props.increment}>
+      <button className='btn btn-success' onClick={props.increment}>
         +
       </button>
-      <button className="btn btn-danger" onClick={props.decrement}>
+      <button className='btn btn-danger' onClick={props.decrement}>
         -
       </button>
-      <button className="btn btn-secondary" onClick={props.deleteCounter}>
+      <button className='btn btn-secondary' onClick={props.deleteCounter}>
         Delete Me
       </button>
-    </>
-  );
+    </div>
+  )
 }
 
 // Class based Counter linked to leaderboard

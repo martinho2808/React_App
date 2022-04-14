@@ -1,20 +1,22 @@
 // hook based functional component
-import { useState } from "react";
-import Questioner from "../Components/Exercise/Questioner.js";
+import { useState } from 'react'
+import Questioner from '../Components/Exercise/Questioner.js'
 
-export default function QuestionerPage(props) {
-  const [answer, setAnswer] = useState("");
+export default function QuestionerPage (props) {
+  const [answer, setAnswer] = useState('')
 
-  function question() {
-    setAnswer(prompt("What is your name?"));
+  function question () {
+    setAnswer(prompt('What is your name?'))
   }
 
   return (
     <>
-      <Questioner questionFunc={question} />
+      <br />
+      <Questioner questionFunc={question} question='What is your name?' />
+      <br />
       <p>{answer}</p>
     </>
-  );
+  )
 }
 
 // import React from "react";
